@@ -27,62 +27,41 @@
         <!-- Kontainer utama -->
         <div class="flex flex-col md:flex-row">
             <!-- Sidebar -->
-            <aside
-                id="sidebar"
-                class="flex flex-col fixed inset-y-0 left-0 w-64 bg-white shadow-lg md:relative md:w-1/5 md:h-auto md:shadow-none transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40"
-            >
+            <aside id="sidebar" class="flex flex-col fixed inset-y-0 left-0 w-64 bg-white shadow-lg md:relative md:w-1/5 md:h-auto md:shadow-none transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40">
                 <div class="p-6 relative flex-1 overflow-y-auto">
                     <!-- Tombol tutup sidebar untuk tampilan mobile -->
-                    <button
-                        id="close-sidebar"
-                        class="absolute top-4 right-4 p-2 text-gray-600 md:hidden focus:outline-none"
-                    >
-                        <svg
-                            class="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12"
-                            ></path>
+                    <button id="close-sidebar" class="absolute top-4 right-4 p-2 text-gray-600 md:hidden focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-
+    
                     <!-- Judul dan menu navigasi -->
                     <h2 class="text-2xl font-bold mb-4">DramaKu</h2>
                     <ul class="space-y-2">
                         <li>
-                            <a
-                                href="#"
-                                class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300"
-                                >China</a
-                            >
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Dramas</a>
                         </li>
                         <li>
-                            <a
-                                href="#"
-                                class="block py-2 px-4 rounded-md text-gray-700 bg-gray-300 font-bold"
-                                >Japan</a
-                            >
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 bg-gray-300 font-bold">Countries</a>
                         </li>
                         <li>
-                            <a
-                                href="#"
-                                class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300"
-                                >Korea</a
-                            >
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Awards</a>
                         </li>
                         <li>
-                            <a
-                                href="#"
-                                class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300"
-                                >Indonesia</a
-                            >
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Genres</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Actors</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Comments</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Users</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -93,28 +72,12 @@
                 <!-- Container untuk navigasi dan pencarian -->
                 <div class="container">
                     <!-- Kontainer untuk tombol hamburger dan tombol login -->
-                    <section
-                        class="flex items-center justify-between md:justify-end mb-4"
-                    >
-                        <button
-                            id="hamburger"
-                            class="p-2 text-gray-600 md:hidden focus:outline-none"
-                        >
-                            <svg
-                                class="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                ></path>
-                            </svg>
-                        </button>
+                    <section class="flex items-center justify-between md:justify-end mb-4">
+                    <button id="hamburger" class="p-2 text-gray-600 md:hidden focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
 
                         <!-- Tombol login -->
                         <button
