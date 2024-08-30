@@ -25,12 +25,12 @@
     </script>
 </head>
 
-<body class="bg-gray-100 min-h-scree">
+<body class="bg-gray-100 flex flex-col min-h-screen">
     <!-- Container Utama -->
-    <div class="flex flex-col md:flex-row h-screen">
+    <div class="flex flex-1">
         <!-- Sidebar -->
-        <aside id="sidebar" class="flex flex-col fixed inset-y-0 left-0 w-64 bg-white shadow-lg md:relative md:w-1/5 h-full md:shadow-none transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40" style="height: 100vh;">
-            <div class="p-6 relative flex-1 overflow-y-auto">
+        <aside id="sidebar" class="flex flex-col fixed inset-y-0 left-0 w-64 bg-white shadow-lg md:relative md:w-1/5 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40">
+            <div class="p-6 relative">
                 <!-- Tombol tutup sidebar untuk tampilan mobile -->
                 <button id="close-sidebar" class="absolute top-4 right-4 p-2 text-gray-600 md:hidden focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -131,7 +131,7 @@
         </main>
     </div>
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-4 text-center mt-auto">
+    <footer class="bg-gray-800 text-white p-4 text-center mt-auto z-50">
         <p>&copy; 2024 DramaKu. All rights reserved.</p>
     </footer>
 </body>
