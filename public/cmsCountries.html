@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DramaKu</title>
+    <!-- Mengimpor Tailwind CSS  -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- script untuk toggle sidebar -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sidebar = document.getElementById('sidebar');
+            const hamburger = document.getElementById('hamburger');
+            const closeSidebar = document.getElementById('close-sidebar');
+
+            hamburger.addEventListener('click', function() {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+
+            closeSidebar.addEventListener('click', function() {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Kontainer fleksibel untuk tata letak responsif (kolom atau baris) -->
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <div id="sidebar" class="flex flex-col fixed inset-y-0 left-0 w-64 bg-white shadow-lg md:relative md:w-1/5 md:h-auto md:shadow-none transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 h-screen">
+            <div class="p-6 flex-1 overflow-y-auto">
+                <!-- Tombol tutup sidebar untuk tampilan mobile -->
+                <button id="close-sidebar" class="absolute top-4 right-4 p-2 text-gray-600 md:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+                <!-- Judul dan menu navigasi -->
+                <h2 class="text-2xl font-bold mb-4">DramaKu</h2>
+                <ul class="space-y-2">
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Dramas</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 bg-gray-300 font-bold">Countries</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Awards</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Genres</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Actors</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Comments</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">User</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Konten utama -->
+        <div class="flex-1 p-6">
+            <!-- Kontainer untuk tombol hamburger dan tombol login -->
+            <div class="flex items-center justify-between md:justify-end mb-4">
+                <!-- Tombol hamburger untuk membuka sidebar di tampilan mobile -->
+                <button id="hamburger" class="p-2 text-gray-600 md:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
