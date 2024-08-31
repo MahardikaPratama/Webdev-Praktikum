@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Page</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/modal.css">
 </head>
 
 <body class="bg-gray-100">
@@ -64,50 +64,66 @@
                 <div class="w-24 h-24 bg-gray-300"></div> <!-- Placeholder for play button -->
             </div>
 
-            <div class="mt-10">
-                <h2 class="text-2xl font-bold">People think about this drama</h2>
-                <div class="mt-4 space-y-4">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gray-200 rounded-full"></div> <!-- Placeholder for user avatar -->
-                        <div class="flex-1">
-                            <p class="text-gray-600">User 1 - 08/30/2024</p>
-                            <p class="text-gray-800">It is a wonderful drama! I loved it so much!!!</p>
-                            <div class="text-yellow-500">★★★★☆</div>
+            <!-- Updated Comment Section -->
+            <div class="comment-section mt-10">
+                <h2>People think about this drama</h2>
+                <div class="comment-list">
+                    <div class="comment-item">
+                        <div class="user-avatar"></div>
+                        <div class="comment-content">
+                            <div class="username">User 1</div>
+                            <div class="comment-date">Aug 30, 2024</div>
+                            <div class="rating">★★★☆☆</div>
+                            <div class="comment-text">Good movie but could be better.</div>
                         </div>
                     </div>
-                    <!-- Repeat for other comments -->
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gray-200 rounded-full"></div>
-                        <div class="flex-1">
-                            <p class="text-gray-600">User 2 - 08/30/2024</p>
-                            <p class="text-gray-800">It is a wonderful drama! I loved it so much!!!</p>
-                            <div class="text-yellow-500">★★★★☆</div>
+                    <div class="comment-item">
+                        <div class="user-avatar"></div>
+                        <div class="comment-content">
+                            <div class="username">User 2</div>
+                            <div class="comment-date">Aug 28, 2024</div>
+                            <div class="rating">★★★★☆</div>
+                            <div class="comment-text">Really enjoyed it!</div>
                         </div>
                     </div>
-                    <!-- Additional comments here -->
+                    <div class="comment-item">
+                        <div class="user-avatar"></div>
+                        <div class="comment-content">
+                            <div class="username">User 3</div>
+                            <div class="comment-date">Aug 26, 2024</div>
+                            <div class="rating">★★★★★</div>
+                            <div class="comment-text">Amazing movie! Highly recommend.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comment Form -->
+                <div class="comment-form">
+                    <h2>Add Your Comment</h2>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <textarea placeholder="Your Comment" required></textarea>
+                        <div class="rating-input">
+                            <label>Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5" name="rating" value="5" required>
+                                <label for="star5">★</label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4">★</label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3">★</label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2">★</label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1">★</label>
+                            </div>
+                        </div>
+                        <input type="submit" value="Submit">
+                    </form>
                 </div>
             </div>
+            <!-- End of Updated Comment Section -->
 
-            <div class="mt-10">
-                <h2 class="text-2xl font-bold">Add your comment</h2>
-                <form class="mt-4 space-y-4">
-                    <div>
-                        <label class="block text-gray-700" for="name">Name</label>
-                        <input type="text" id="name" class="w-full p-2 border border-gray-300 rounded" placeholder="Your Name">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700" for="rate">Rate</label>
-                        <input type="number" id="rate" max="5" min="1" class="w-full p-2 border border-gray-300 rounded" placeholder="Rate out of 5">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700" for="thoughts">Your thoughts</label>
-                        <textarea id="thoughts" class="w-full p-2 border border-gray-300 rounded" rows="4" placeholder="Your thoughts"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">Submit</button>
-                    </div>
-                </form>
-            </div>
         </div>
     </main>
 
