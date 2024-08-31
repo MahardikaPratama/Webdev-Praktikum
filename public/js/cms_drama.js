@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", function() {
     // Referensi tombol validate dan modal
-    const validateButton = document.querySelector("a[href='#']"); // Asumsikan tombol Validate memiliki href '#'
+    const validateButton = document.getElementById("validate-button"); 
     const modal = document.getElementById("movieApprovalModal");
     const closeModalButton = document.getElementById("closeModal");
 
