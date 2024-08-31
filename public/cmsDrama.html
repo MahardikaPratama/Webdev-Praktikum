@@ -17,23 +17,25 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-                <h2 class="mb-4 text-2xl font-bold">DramaKu</h2>
+                <h2 class="mb-4 text-2xl">DramaKu</h2>
                 <ul class="space-y-2">
-                    <li>
-                        <a href="#" class="block px-4 py-2 font-bold text-gray-700 bg-gray-300 rounded-md">Dramas</a>
-                        <!-- Nested list -->
-                        <ul class="mt-2 ml-4 space-y-2">
-                            <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-200">Validate</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-200">Input New Drama</a></li>
+                    <li class="rounded-md">
+                        <button id="accordion-button" class="flex items-center justify-between w-full px-4 py-2 text-left text-gray-700 bg-gray-300 rounded-md focus:outline-none">
+                            Dramas
+                            <span id="accordion-icon" class="text-xl">+</span>
+                        </button>
+                        <ul id="accordion-content" class="mt-2 ml-4 space-y-2 rounded-md accordion-content">
+                            <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-200">Validate</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-200">Input New Drama</a></li>
                         </ul>
-                    </li>                    
-                    <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Countries</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Awards</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Genres</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Actors</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Comments</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Users</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Logout</a></li>
+                    </li>
+                    <li><a href="cmsCountries.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Countries</a></li>
+                    <li><a href="cmsAwards.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Awards</a></li>
+                    <li><a href="cmsGenres.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Genres</a></li>
+                    <li><a href="cmsActors.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Actors</a></li>
+                    <li><a href="cmsComments.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Comments</a></li>
+                    <li><a href="cmsUsers.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Users</a></li>
+                    <li><a href="loginPage.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Logout</a></li>
                 </ul>
             </div>
         </aside>
@@ -103,6 +105,6 @@
     <footer class="z-50 p-4 text-center text-white bg-gray-800">
         <p>&copy; 2024 DramaKu. All rights reserved.</p>
     </footer>
-    <script src='./js/script.js'></script>
+    <script src='./js/cms_drama.js'></script>
 </body>
 </html>

@@ -24,29 +24,14 @@
                     <h2 class="mb-4 text-2xl font-bold">DramaKu</h2>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Dramas</a>
+                            <a href="home.html" class="block px-4 py-2 text-gray-700 bg-gray-300 rounded-md">Japan</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 font-bold text-gray-700 bg-gray-300 rounded-md">Countries</a>
+                            <a href="home.html" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Korea</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Awards</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Genres</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Actors</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Comments</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Users</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">Logout</a>
-                        </li>
+                            <a href="home.html" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300">China</a>
+                        </li
                     </ul>
                 </div>
             </aside>
@@ -59,7 +44,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
-                    <button type="button" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">Login
+                    <button id="login-button" type="button" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                        Login
                     </button>
                 </div>
 
@@ -125,15 +111,9 @@
                 </div>
 
                 <!-- Drama List Section -->
-                <section
-                    class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-                >
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <img
-                            src="../Asset/poster.jpg"
-                            alt="Drama Image"
-                            class="object-cover w-full h-32 mb-4 rounded-md"
-                        />
+                <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    <div class="p-4 bg-white rounded-lg shadow list-drama">
+                        <img src="../Asset/poster.jpg" alt="Drama Image" class="object-cover w-full h-32 mb-4 rounded-md"/>
                         <h3 class="text-lg font-bold">
                             Title of the drama 1 that makes two lines
                         </h3>
@@ -144,12 +124,8 @@
                             <p class="text-sm text-gray-500">19 views</p>
                         </div>
                     </div>
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <img
-                            src="../Asset/poster.jpg"
-                            alt="Drama Image"
-                            class="object-cover w-full h-32 mb-4 rounded-md"
-                        />
+                    <div class="p-4 bg-white rounded-lg shadow list-drama">
+                        <img src="../Asset/poster.jpg" alt="Drama Image" class="object-cover w-full h-32 mb-4 rounded-md"/>
                         <h3 class="text-lg font-bold">Title of the drama 2</h3>
                         <p class="text-gray-600">2024</p>
                         <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
@@ -158,12 +134,8 @@
                             <p class="text-sm text-gray-500">19 views</p>
                         </div>
                     </div>
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <img
-                            src="../Asset/poster.jpg"
-                            alt="Drama Image"
-                            class="object-cover w-full h-32 mb-4 rounded-md"
-                        />
+                    <div class="p-4 bg-white rounded-lg shadow list-drama">
+                        <img src="../Asset/poster.jpg" alt="Drama Image" class="object-cover w-full h-32 mb-4 rounded-md"/>
                         <h3 class="text-lg font-bold">Title of the drama 3</h3>
                         <p class="text-gray-600">2024</p>
                         <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
@@ -172,12 +144,8 @@
                             <p class="text-sm text-gray-500">19 views</p>
                         </div>
                     </div>
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <img
-                            src="../Asset/poster.jpg"
-                            alt="Drama Image"
-                            class="object-cover w-full h-32 mb-4 rounded-md"
-                        />
+                    <div class="p-4 bg-white rounded-lg shadow list-drama">
+                        <img src="../Asset/poster.jpg" alt="Drama Image" class="object-cover w-full h-32 mb-4 rounded-md"/>
                         <h3 class="text-lg font-bold">Title of the drama 4</h3>
                         <p class="text-gray-600">2024</p>
                         <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
@@ -186,12 +154,8 @@
                             <p class="text-sm text-gray-500">19 views</p>
                         </div>
                     </div>
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <img
-                            src="../Asset/poster.jpg"
-                            alt="Drama Image"
-                            class="object-cover w-full h-32 mb-4 rounded-md"
-                        />
+                    <div class="p-4 bg-white rounded-lg shadow list-drama">
+                        <img src="../Asset/poster.jpg" alt="Drama Image" class="object-cover w-full h-32 mb-4 rounded-md"/>
                         <h3 class="text-lg font-bold">Title of the drama 5</h3>
                         <p class="text-gray-600">2024</p>
                         <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
@@ -200,12 +164,8 @@
                             <p class="text-sm text-gray-500">19 views</p>
                         </div>
                     </div>
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <img
-                            src="../Asset/poster.jpg"
-                            alt="Drama Image"
-                            class="object-cover w-full h-32 mb-4 rounded-md"
-                        />
+                    <div class="p-4 bg-white rounded-lg shadow list-drama">
+                        <img src="../Asset/poster.jpg" alt="Drama Image" class="object-cover w-full h-32 mb-4 rounded-md"/>
                         <h3 class="text-lg font-bold">Title of the drama 6</h3>
                         <p class="text-gray-600">2024</p>
                         <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
@@ -222,6 +182,6 @@
         <footer class="z-50 p-4 text-center text-white bg-gray-800">
             <p>&copy; 2024 DramaKu. All rights reserved.</p>
         </footer>
-        <script src='./js/script.js'></script>
+        <script src='./js/home.js'></script>
     </body>
 </html>

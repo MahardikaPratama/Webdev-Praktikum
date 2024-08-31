@@ -1226,3 +1226,23 @@ video {
     padding-left: 1.5rem;
   }
 }
+
+.accordion-content {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.show {
+  display: block;
+  max-height: 200px; /* Adjust based on content */
+}
+
+.menu-link {
+  transition: background-color 0.2s ease;
+}
+
+.menu-link:hover {
+  background-color: #e5e7eb; 
+}
