@@ -1,266 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DramaKu</title>
-    <!-- Mengimpor Tailwind CSS dari CDN untuk styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- script untuk toggle sidebar -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const sidebar = document.getElementById('sidebar');
-            const hamburger = document.getElementById('hamburger');
-            const closeSidebar = document.getElementById('close-sidebar');
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DramaKu</title>
+        <!-- Mengimpor Tailwind CSS dari CDN untuk styling -->
+        <link rel="stylesheet" href="./css/style.css" />
+        <!-- script untuk toggle sidebar -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const sidebar = document.getElementById("sidebar");
+                const hamburger = document.getElementById("hamburger");
+                const closeSidebar = document.getElementById("close-sidebar");
 
-            hamburger.addEventListener('click', function() {
-                sidebar.classList.toggle('-translate-x-full');
-            });
+                hamburger.addEventListener("click", function () {
+                    sidebar.classList.toggle("-translate-x-full");
+                });
 
-            closeSidebar.addEventListener('click', function() {
-                sidebar.classList.toggle('-translate-x-full');
+                closeSidebar.addEventListener("click", function () {
+                    sidebar.classList.toggle("-translate-x-full");
+                });
             });
-        });
-    </script>
-</head>
-<body class="bg-gray-100">
-    <!-- Kontainer fleksibel untuk tata letak responsif (kolom atau baris) -->
-    <div class="flex flex-col md:flex-row">
-        <!-- Sidebar -->
-        <div id="sidebar" class="flex flex-col fixed inset-y-0 left-0 w-64 bg-white shadow-lg md:relative md:w-1/5 md:h-auto md:shadow-none transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40">
-            <div class="p-6 relative flex-1 overflow-y-auto">
-                <!-- Tombol tutup sidebar untuk tampilan mobile -->
-                <button id="close-sidebar" class="absolute top-4 right-4 p-2 text-gray-600 md:hidden focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-                
-                <!-- Judul dan menu navigasi -->
-                <h2 class="text-2xl font-bold mb-4">DramaKu</h2>
-                <ul class="space-y-2">
-                    <!-- Item menu negara drama -->
-                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">China</a></li>
-                    <!-- Item terpilih -->
-                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 bg-gray-300 font-bold">Japan</a></li>
-                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Korea</a></li>
-                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Indonesia</a></li>
-                </ul>
-            </div>
+        </script>
+    </head>
+    <body class="bg-gray-100">
+        <!-- Kontainer utama -->
+        <div class="flex flex-col md:flex-row">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="flex flex-col fixed inset-y-0 left-0 w-64 bg-white shadow-lg md:relative md:w-1/5 md:h-auto md:shadow-none transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40">
+                <div class="p-6 relative flex-1 overflow-y-auto">
+                    <!-- Tombol tutup sidebar untuk tampilan mobile -->
+                    <button id="close-sidebar" class="absolute top-4 right-4 p-2 text-gray-600 md:hidden focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+    
+                    <!-- Judul dan menu navigasi -->
+                    <h2 class="text-2xl font-bold mb-4">DramaKu</h2>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Dramas</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 bg-gray-300 font-bold">Countries</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Awards</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Genres</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Actors</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Comments</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Users</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Konten Utama -->
+            <main class="flex-1 p-6">
+                <!-- Container untuk navigasi dan pencarian -->
+                <div class="container">
+                    <!-- Kontainer untuk tombol hamburger dan tombol login -->
+                    <section class="flex items-center justify-between md:justify-end mb-4">
+                    <button id="hamburger" class="p-2 text-gray-600 md:hidden focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+
+                        <!-- Tombol login -->
+                        <button
+                            type="button"
+                            class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5"
+                        >
+                            Login
+                        </button>
+                    </section>
+
+                    <!-- Form pencarian drama -->
+                    <section class="flex justify-center mb-4">
+                        <form class="flex items-center w-full max-w-lg">
+                            <label for="default-search" class="sr-only"
+                                >Search</label
+                            >
+                            <div class="relative w-full">
+                                <div
+                                    class="absolute inset-y-0 left-0 flex items-center pl-3"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-gray-500"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            stroke="currentColor"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                                        />
+                                    </svg>
+                                </div>
+                                <input
+                                    type="search"
+                                    id="default-search"
+                                    class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-orange-500 focus:border-orange-500"
+                                    placeholder="Search Drama..."
+                                    required
+                                />
+                                <button
+                                    type="submit"
+                                    class="absolute right-2.5 top-1/2 transform -translate-y-1/2 bg-orange-600 hover:bg-orange-700 text-white focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2"
+                                >
+                                    Search
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Menampilkan teks keyword pencarian -->
+                    <section class="mb-4 flex justify-center">
+                        <p class="text-gray-700 italic">
+                            Searched/Tagged with "Bokura"
+                        </p>
+                    </section>
+
+                    <!-- Opsi Filter dan Urutan -->
+                    <section
+                        class="flex flex-col lg:flex-row lg:space-x-4 mb-4"
+                    >
+                        <!-- Opsi Filter -->
+                        <div
+                            class="flex flex-wrap items-center space-y-2 lg:space-y-0 lg:space-x-2 mb-4 lg:mb-0"
+                        >
+                            <!-- Label untuk filter -->
+                            <span class="text-gray-700">Filtered by:</span>
+                            <!-- Dropdown untuk filter -->
+                            <select
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200"
+                            >
+                                <option selected>Year</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                            </select>
+                            <select
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200"
+                            >
+                                <option selected>Genre</option>
+                                <option value="Action">Action</option>
+                                <option value="Romance">Romance</option>
+                            </select>
+                            <select
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200"
+                            >
+                                <option selected>Status</option>
+                                <option value="Ongoing">Ongoing</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                            <select
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200"
+                            >
+                                <option selected>Availability</option>
+                                <option value="Available">Available</option>
+                                <option value="Unavailable">Unavailable</option>
+                            </select>
+                            <select
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200"
+                            >
+                                <option selected>Award</option>
+                                <option value="Awarded">Awarded</option>
+                                <option value="Not Awarded">Not Awarded</option>
+                            </select>
+                        </div>
+                        <!-- Opsi Urutan -->
+                        <div class="flex items-center space-x-2">
+                            <span class="text-gray-700">Sorted by:</span>
+                            <select
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200"
+                            >
+                                <option selected>Alphabetics</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <!-- Tombol Kirim -->
+                    <section class="flex justify-start mb-4">
+                        <button
+                            type="button"
+                            class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5"
+                        >
+                            Submit
+                        </button>
+                    </section>
+
+                    <!-- Bagian Daftar Drama -->
+                    <section
+                        class="grid grid-cols-1 gap-4 p-6 max-w-4xl mx-auto"
+                    >
+                        <div
+                            class="bg-white p-4 rounded-lg shadow flex items-center space-x-4"
+                        >
+                            <!-- Gambar poster drama -->
+                            <img
+                                src="../Asset/poster.jpg"
+                                alt="Drama Image"
+                                class="h-32 w-24 object-cover rounded-md"
+                            />
+                            <!-- Informasi tentang drama -->
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold">
+                                    Title of the drama 1 that makes two lines
+                                </h3>
+                                <p class="text-gray-600">2024</p>
+                                <p class="text-gray-600">
+                                    Genre 1, Genre 2, Genre 3
+                                </p>
+                                <!-- Informasi tambahan dan statistik -->
+                                <div
+                                    class="flex justify-between items-center mt-2"
+                                >
+                                    <p class="text-gray-600">Rate 9/10</p>
+                                    <p class="text-gray-500 text-sm">
+                                        19 views
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white p-4 rounded-lg shadow flex items-center space-x-4"
+                        >
+                            <!-- Gambar poster drama -->
+                            <img
+                                src="../Asset/poster.jpg"
+                                alt="Drama Image"
+                                class="h-32 w-24 object-cover rounded-md"
+                            />
+                            <!-- Informasi tentang drama -->
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold">
+                                    Title of the drama 1 that makes two lines
+                                </h3>
+                                <p class="text-gray-600">2024</p>
+                                <p class="text-gray-600">
+                                    Genre 1, Genre 2, Genre 3
+                                </p>
+                                <!-- Informasi tambahan dan statistik -->
+                                <div
+                                    class="flex justify-between items-center mt-2"
+                                >
+                                    <p class="text-gray-600">Rate 9/10</p>
+                                    <p class="text-gray-500 text-sm">
+                                        19 views
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white p-4 rounded-lg shadow flex items-center space-x-4"
+                        >
+                            <!-- Gambar poster drama -->
+                            <img
+                                src="../Asset/poster.jpg"
+                                alt="Drama Image"
+                                class="h-32 w-24 object-cover rounded-md"
+                            />
+                            <!-- Informasi tentang drama -->
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold">
+                                    Title of the drama 1 that makes two lines
+                                </h3>
+                                <p class="text-gray-600">2024</p>
+                                <p class="text-gray-600">
+                                    Genre 1, Genre 2, Genre 3
+                                </p>
+                                <!-- Informasi tambahan dan statistik -->
+                                <div
+                                    class="flex justify-between items-center mt-2"
+                                >
+                                    <p class="text-gray-600">Rate 9/10</p>
+                                    <p class="text-gray-500 text-sm">
+                                        19 views
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white p-4 rounded-lg shadow flex items-center space-x-4"
+                        >
+                            <!-- Gambar poster drama -->
+                            <img
+                                src="../Asset/poster.jpg"
+                                alt="Drama Image"
+                                class="h-32 w-24 object-cover rounded-md"
+                            />
+                            <!-- Informasi tentang drama -->
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold">
+                                    Title of the drama 1 that makes two lines
+                                </h3>
+                                <p class="text-gray-600">2024</p>
+                                <p class="text-gray-600">
+                                    Genre 1, Genre 2, Genre 3
+                                </p>
+                                <!-- Informasi tambahan dan statistik -->
+                                <div
+                                    class="flex justify-between items-center mt-2"
+                                >
+                                    <p class="text-gray-600">Rate 9/10</p>
+                                    <p class="text-gray-500 text-sm">
+                                        19 views
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white p-4 rounded-lg shadow flex items-center space-x-4"
+                        >
+                            <!-- Gambar poster drama -->
+                            <img
+                                src="../Asset/poster.jpg"
+                                alt="Drama Image"
+                                class="h-32 w-24 object-cover rounded-md"
+                            />
+                            <!-- Informasi tentang drama -->
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold">
+                                    Title of the drama 1 that makes two lines
+                                </h3>
+                                <p class="text-gray-600">2024</p>
+                                <p class="text-gray-600">
+                                    Genre 1, Genre 2, Genre 3
+                                </p>
+                                <!-- Informasi tambahan dan statistik -->
+                                <div
+                                    class="flex justify-between items-center mt-2"
+                                >
+                                    <p class="text-gray-600">Rate 9/10</p>
+                                    <p class="text-gray-500 text-sm">
+                                        19 views
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white p-4 rounded-lg shadow flex items-center space-x-4"
+                        >
+                            <!-- Gambar poster drama -->
+                            <img
+                                src="../Asset/poster.jpg"
+                                alt="Drama Image"
+                                class="h-32 w-24 object-cover rounded-md"
+                            />
+                            <!-- Informasi tentang drama -->
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold">
+                                    Title of the drama 1 that makes two lines
+                                </h3>
+                                <p class="text-gray-600">2024</p>
+                                <p class="text-gray-600">
+                                    Genre 1, Genre 2, Genre 3
+                                </p>
+                                <!-- Informasi tambahan dan statistik -->
+                                <div
+                                    class="flex justify-between items-center mt-2"
+                                >
+                                    <p class="text-gray-600">Rate 9/10</p>
+                                    <p class="text-gray-500 text-sm">
+                                        19 views
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white p-4 rounded-lg shadow flex items-center space-x-4"
+                        >
+                            <!-- Gambar poster drama -->
+                            <img
+                                src="../Asset/poster.jpg"
+                                alt="Drama Image"
+                                class="h-32 w-24 object-cover rounded-md"
+                            />
+                            <!-- Informasi tentang drama -->
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold">
+                                    Title of the drama 1 that makes two lines
+                                </h3>
+                                <p class="text-gray-600">2024</p>
+                                <p class="text-gray-600">
+                                    Genre 1, Genre 2, Genre 3
+                                </p>
+                                <!-- Informasi tambahan dan statistik -->
+                                <div
+                                    class="flex justify-between items-center mt-2"
+                                >
+                                    <p class="text-gray-600">Rate 9/10</p>
+                                    <p class="text-gray-500 text-sm">
+                                        19 views
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white p-4 rounded-lg shadow flex items-center space-x-4"
+                        >
+                            <!-- Gambar poster drama -->
+                            <img
+                                src="../Asset/poster.jpg"
+                                alt="Drama Image"
+                                class="h-32 w-24 object-cover rounded-md"
+                            />
+                            <!-- Informasi tentang drama -->
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold">
+                                    Title of the drama 1 that makes two lines
+                                </h3>
+                                <p class="text-gray-600">2024</p>
+                                <p class="text-gray-600">
+                                    Genre 1, Genre 2, Genre 3
+                                </p>
+                                <!-- Informasi tambahan dan statistik -->
+                                <div
+                                    class="flex justify-between items-center mt-2"
+                                >
+                                    <p class="text-gray-600">Rate 9/10</p>
+                                    <p class="text-gray-500 text-sm">
+                                        19 views
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
         </div>
 
-        <!-- Konten utama -->
-        <div class="flex-1 p-6">
-            <!-- Kontainer untuk tombol hamburger dan tombol login -->
-            <div class="flex items-center justify-between md:justify-end mb-4">
-                <!-- Tombol hamburger untuk membuka sidebar di tampilan mobile -->
-                <button id="hamburger" class="p-2 text-gray-600 md:hidden focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-
-                <!-- Tombol login -->
-                <button type="button" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">Login</button>
-            </div>
-
-            <!-- Form pencarian drama -->
-            <div class="flex justify-center mb-4">
-                <form class="flex items-center w-full max-w-lg">
-                    <!-- Label tersembunyi untuk aksesibilitas -->
-                    <label for="default-search" class="sr-only">Search</label>
-                    <div class="relative w-full">
-                        <!-- Ikon pencarian -->
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3">
-                            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                            </svg>
-                        </div>
-                        <!-- Input pencarian -->
-                        <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-orange-500 focus:border-orange-500" placeholder="Search Drama..." required />
-                        <!-- Tombol submit pencarian -->
-                        <button type="submit" class="absolute right-2.5 top-1/2 transform -translate-y-1/2 bg-orange-600 hover:bg-orange-700 text-white focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Menampilkan teks keyword pencarian -->
-            <div class="mb-4 flex justify-center">
-                <p class="text-gray-700 italic">Searched/Tagged with "Bokura"</p>
-            </div>
-
-            <!-- Opsi Filter dan Urutan -->
-            <div class="flex flex-col lg:flex-row lg:space-x-4 mb-4">
-                <!-- Opsi Filter -->
-                <div class="flex flex-wrap items-center space-y-2 lg:space-y-0 lg:space-x-2 mb-4 lg:mb-0">
-                    <!-- Label untuk filter -->
-                    <span class="text-gray-700">Filtered by:</span>
-                    <!-- Dropdown untuk filter -->
-                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200">
-                        <option selected>Year</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                    </select>
-                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200">
-                        <option selected>Genre</option>
-                        <option value="Action">Action</option>
-                        <option value="Romance">Romance</option>
-                    </select>
-                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200">
-                        <option selected>Status</option>
-                        <option value="Ongoing">Ongoing</option>
-                        <option value="Completed">Completed</option>
-                    </select>
-                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200">
-                        <option selected>Availability</option>
-                        <option value="Available">Available</option>
-                        <option value="Unavailable">Unavailable</option>
-                    </select>
-                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200">
-                        <option selected>Award</option>
-                        <option value="Awarded">Awarded</option>
-                        <option value="Not Awarded">Not Awarded</option>
-                    </select>
-                </div>
-                <!-- Opsi Urutan -->
-                <div class="flex items-center space-x-2">
-                    <span class="text-gray-700">Sorted by:</span>
-                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 hover:bg-gray-200">
-                        <option selected>Alphabetics</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Tombol Kirim -->
-            <div class="flex justify-start mb-4">
-                <button type="button" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">Submit</button>
-            </div>
-
-            <!-- Bagian Daftar Drama -->
-            <div class="grid grid-cols-1 gap-4 p-6 max-w-4xl mx-auto">
-                <!-- Kartu drama yang berulang -->
-                <div class="bg-white p-4 rounded-lg shadow flex items-center space-x-4">
-                    <!-- Gambar poster drama -->
-                    <img src="../../Asset/poster.jpg" alt="Drama Image" class="h-32 w-24 object-cover rounded-md">
-                    <!-- Informasi tentang drama -->
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold">Title of the drama 1 that makes two lines</h3>
-                        <p class="text-gray-600">2024</p>
-                        <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
-                        <!-- Informasi tambahan dan statistik -->
-                        <div class="flex justify-between items-center mt-2">
-                            <p class="text-gray-600">Rate 9/10</p>
-                            <p class="text-gray-500 text-sm">19 views</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow flex items-center space-x-4">
-                    <!-- Gambar poster drama -->
-                    <img src="../../Asset/poster.jpg" alt="Drama Image" class="h-32 w-24 object-cover rounded-md">
-                    <!-- Informasi tentang drama -->
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold">Title of the drama 1 that makes two lines</h3>
-                        <p class="text-gray-600">2024</p>
-                        <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
-                        <!-- Informasi tambahan dan statistik -->
-                        <div class="flex justify-between items-center mt-2">
-                            <p class="text-gray-600">Rate 9/10</p>
-                            <p class="text-gray-500 text-sm">19 views</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow flex items-center space-x-4">
-                    <!-- Gambar poster drama -->
-                    <img src="../Asset/poster.jpg" alt="Drama Image" class="h-32 w-24 object-cover rounded-md">
-                    <!-- Informasi tentang drama -->
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold">Title of the drama 1 that makes two lines</h3>
-                        <p class="text-gray-600">2024</p>
-                        <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
-                        <!-- Informasi tambahan dan statistik -->
-                        <div class="flex justify-between items-center mt-2">
-                            <p class="text-gray-600">Rate 9/10</p>
-                            <p class="text-gray-500 text-sm">19 views</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow flex items-center space-x-4">
-                    <!-- Gambar poster drama -->
-                    <img src="../Asset/poster.jpg" alt="Drama Image" class="h-32 w-24 object-cover rounded-md">
-                    <!-- Informasi tentang drama -->
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold">Title of the drama 1 that makes two lines</h3>
-                        <p class="text-gray-600">2024</p>
-                        <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
-                        <!-- Informasi tambahan dan statistik -->
-                        <div class="flex justify-between items-center mt-2">
-                            <p class="text-gray-600">Rate 9/10</p>
-                            <p class="text-gray-500 text-sm">19 views</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow flex items-center space-x-4">
-                    <!-- Gambar poster drama -->
-                    <img src="../Asset/poster.jpg" alt="Drama Image" class="h-32 w-24 object-cover rounded-md">
-                    <!-- Informasi tentang drama -->
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold">Title of the drama 1 that makes two lines</h3>
-                        <p class="text-gray-600">2024</p>
-                        <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
-                        <!-- Informasi tambahan dan statistik -->
-                        <div class="flex justify-between items-center mt-2">
-                            <p class="text-gray-600">Rate 9/10</p>
-                            <p class="text-gray-500 text-sm">19 views</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow flex items-center space-x-4">
-                    <!-- Gambar poster drama -->
-                    <img src="../Asset/poster.jpg" alt="Drama Image" class="h-32 w-24 object-cover rounded-md">
-                    <!-- Informasi tentang drama -->
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold">Title of the drama 1 that makes two lines</h3>
-                        <p class="text-gray-600">2024</p>
-                        <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
-                        <!-- Informasi tambahan dan statistik -->
-                        <div class="flex justify-between items-center mt-2">
-                            <p class="text-gray-600">Rate 9/10</p>
-                            <p class="text-gray-500 text-sm">19 views</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow flex items-center space-x-4">
-                    <!-- Gambar poster drama -->
-                    <img src="../Asset/poster.jpg" alt="Drama Image" class="h-32 w-24 object-cover rounded-md">
-                    <!-- Informasi tentang drama -->
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold">Title of the drama 1 that makes two lines</h3>
-                        <p class="text-gray-600">2024</p>
-                        <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
-                        <!-- Informasi tambahan dan statistik -->
-                        <div class="flex justify-between items-center mt-2">
-                            <p class="text-gray-600">Rate 9/10</p>
-                            <p class="text-gray-500 text-sm">19 views</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow flex items-center space-x-4">
-                    <!-- Gambar poster drama -->
-                    <img src="../Asset/poster.jpg" alt="Drama Image" class="h-32 w-24 object-cover rounded-md">
-                    <!-- Informasi tentang drama -->
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold">Title of the drama 1 that makes two lines</h3>
-                        <p class="text-gray-600">2024</p>
-                        <p class="text-gray-600">Genre 1, Genre 2, Genre 3</p>
-                        <!-- Informasi tambahan dan statistik -->
-                        <div class="flex justify-between items-center mt-2">
-                            <p class="text-gray-600">Rate 9/10</p>
-                            <p class="text-gray-500 text-sm">19 views</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white p-4 text-center">
+            <p>&copy; 2024 DramaKu. All rights reserved.</p>
+        </footer>
+    </body>
 </html>

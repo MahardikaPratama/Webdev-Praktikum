@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DramaKu</title>
+    <!-- Import Tailwind CSS from CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <!-- Container Utama -->
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="flex flex-col fixed inset-y-0 left-0 w-64 bg-white shadow-lg md:relative md:w-1/5 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40">
+            <div class="p-6 relative">
+                <!-- Button to close sidebar for mobile view -->
+                <button id="close-sidebar" class="absolute top-4 right-4 p-2 text-gray-600 md:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <!-- Title and navigation menu -->
+                <h2 class="text-2xl font-bold mb-4">DramaKu</h2>
+                <ul class="space-y-2">
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Dramas</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Countries</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Awards</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Genres</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 bg-gray-300 font-bold">Actors</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Comments</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Users</a></li>
+                    <li><a href="#" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-300">Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 ml-64 md:ml-0">
+            <button id="hamburger" class="p-2 text-gray-600 md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <!-- Section for actors management -->
+            <section class="container mx-auto md:overflow-x-auto bg-white p-6 rounded-md shadow-md">
+                <form class="mb-6 w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                    <div class="flex flex-col w-full">
+                        <label for="country" class="block font-medium text-gray-700">Country</label>
+                        <input type="text" id="country" name="country" class="block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-500" />
+                    </div>
+                    <div class="flex flex-col w-full">
+                        <label for="actor-name" class="block font-medium text-gray-700">Actor Name</label>
+                        <input type="text" id="actor-name" name="actor-name" class="block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-500" />
+                    </div>
+                    <div class="flex flex-col w-full">
+                        <label for="birth-date" class="block font-medium text-gray-700">Birth Date</label>
+                        <input type="date" id="birth-date" name="birth-date" class="block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-500" />
+                    </div>
+                    <div class="flex flex-col col-span-2">
+                        <label for="upload-image" class="block font-medium text-gray-700">Upload Image</label>
+                        <input type="file" id="upload-image" name="upload-image" class="block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-500" />
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="col-span-2 flex justify-start mt-4">
+                        <button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">Submit</button>
+                    </div>
+                </form>
+                
+                <!-- Table displaying data -->
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="py-2 px-4 border-b"></th>
+                            <th class="py-2 px-4 border-b text-left">Countries</th>
+                            <th class="py-2 px-4 border-b text-left">Actor Name</th>
+                            <th class="py-2 px-4 border-b text-left">Birth Date</th>
+                            <th class="py-2 px-4 border-b text-left">Photos</th>
+                            <th class="py-2 px-4 border-b text-left">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd:bg-gray-100">
+                            <td class="py-2 px-4 border-b">1</td>
+                            <td class="py-2 px-4 border-b">Japan</td>
+                            <td class="py-2 px-4 border-b">Ken Watanabe</td>
+                            <td class="py-2 px-4 border-b">1959-10-21</td>
+                            <td class="py-2 px-4 border-b">
+                                <img src="../Asset/conan.jpg" alt="Ken Watanabe" class="w-16 h-16 object-cover">
+                            </td>
+                            <td class="py-2 px-4 border-b text-left">
+                                <a href="#" class="text-red-500 hover:text-red-600">Rename</a> |
+                                <a href="#" class="text-red-500 hover:text-red-600">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">2</td>
+                            <td class="py-2 px-4 border-b">Japan</td>
+                            <td class="py-2 px-4 border-b">Takeshi Kitano</td>
+                            <td class="py-2 px-4 border-b">1947-01-18</td>
+                            <td class="py-2 px-4 border-b">
+                                <img src="../Asset/conan.jpg" alt="Takeshi Kitano" class="w-16 h-16 object-cover">
+                            </td>
+                            <td class="py-2 px-4 border-b text-left">
+                                <a href="#" class="text-red-500 hover:text-red-600">Rename</a> |
+                                <a href="#" class="text-red-500 hover:text-red-600">Delete</a>
+                            </td>
+                        </tr>
+                        <tr class="odd:bg-gray-100">
+                            <td class="py-2 px-4 border-b">3</td>
+                            <td class="py-2 px-4 border-b">Korea</td>
+                            <td class="py-2 px-4 border-b">Lee Byung-hun</td>
+                            <td class="py-2 px-4 border-b">1970-07-12</td>
+                            <td class="py-2 px-4 border-b">
+                                <img src="../Asset/conan.jpg" alt="Lee Byung-hun" class="w-16 h-16 object-cover">
+                            </td>
+                            <td class="py-2 px-4 border-b text-left">
+                                <a href="#" class="text-red-500 hover:text-red-600">Rename</a> |
+                                <a href="#" class="text-red-500 hover:text-red-600">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 text-center mt-auto">
+        <p>&copy; 2024 DramaKu. All rights reserved.</p>
+    </footer>
+</body>
+</html>
