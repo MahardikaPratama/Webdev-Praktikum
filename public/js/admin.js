@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const closeSidebar = document.getElementById('close-sidebar');
     const menuLinks = document.querySelectorAll('.menu-link');
+    
 
     // Toggle sidebar visibility
     hamburger.addEventListener('click', () => {
@@ -25,4 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('hover:bg-gray-300');
         }
     });
+    
+});
+
+
+// JavaScript to close the modal
+document.getElementById("closeModal").addEventListener("click", function() {
+    document.getElementById("movieApprovalModal").style.display = "none";
 });

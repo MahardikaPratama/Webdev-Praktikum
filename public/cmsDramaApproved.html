@@ -4,221 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <style>
-        /* Modal Styling */
-        #movieApprovalModal {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: white;
-            margin: 2rem;
-            padding: 2rem;
-            border-radius: 8px;
-            max-width: 800px;
-            width: 100%;
-            position: relative;
-        }
-
-        .close-modal-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-bottom: 20px;
-        }
-
-        .modal-header .modal-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .modal-buttons .approve-btn {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .modal-buttons .approve-btn:hover {
-            background-color: #218838;
-        }
-
-        .modal-buttons .delete-btn {
-            padding: 10px 20px;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .modal-buttons .delete-btn:hover {
-            background-color: #c82333;
-        }
-
-        /* General Page Styling */
-        body, html {
-            height: 100%;
-            margin: 0;
-        }
-
-        .comment-section {
-            margin-top: 40px;
-        }
-
-        .comment-section h2 {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .comment-list {
-            margin-top: 20px;
-        }
-
-        .comment-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .comment-item .user-avatar {
-            width: 50px;
-            height: 50px;
-            background-color: #ddd;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        .comment-item .comment-content {
-            flex-grow: 1;
-        }
-
-        .comment-item .comment-content .username {
-            font-weight: bold;
-        }
-
-        .comment-item .comment-content .comment-date {
-            font-size: 0.875rem;
-            color: #888;
-        }
-
-        .comment-item .comment-content .comment-text {
-            margin-top: 10px;
-        }
-
-        .comment-item .comment-content .rating {
-            color: #ffcc00;
-            margin-top: 5px;
-        }
-
-        .comment-form {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-        }
-
-        .comment-form input[type="text"], .comment-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .comment-form .rating-input {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .comment-form .rating-input label {
-            margin-right: 10px;
-        }
-
-        .comment-form .rating-input input[type="radio"] {
-            margin: 0 3px;
-            transform: scale(1.2); /* Adjust the size of the stars */
-        }
-
-        .comment-form input[type="submit"] {
-            margin-top: 15px;
-            padding: 10px 15px;
-            background-color: #ff6600;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .comment-form input[type="submit"]:hover {
-            background-color: #e65c00;
-        }
-
-        /* Star Rating Styling */
-        .star-rating {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: flex-end;
-            cursor: pointer;
-        }
-
-        .star-rating input[type="radio"] {
-            display: none;
-        }
-
-        .star-rating label {
-            font-size: 2rem;
-            color: #ddd;
-            transition: color 0.2s ease-in-out;
-        }
-
-        .star-rating input[type="radio"]:checked ~ label,
-        .star-rating label:hover,
-        .star-rating label:hover ~ label {
-            color: #ffcc00;
-        }
-
-    </style>
+    <link rel="stylesheet" href="./css/modal.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100">
 
     <header class="bg-white shadow">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container px-6 py-4 mx-auto">
             <h1 class="text-3xl font-bold text-gray-800">DramaKu </h1>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-10">
+    <main class="container px-6 py-10 mx-auto">
         <!-- Movie Approval Modal -->
         <div id="movieApprovalModal" class="hidden">
             <div class="modal-content">
@@ -226,118 +24,58 @@
 
                 <div class="modal-header">
                     <div class="modal-buttons">
-                        <button class="approve-btn">Approve</button>
-                        <button class="delete-btn">Delete</button>
+                        <button class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">Approve</button>
+                        <button class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5">Delete</button>
                     </div>
                 </div>
 
-                <div class="flex flex-col lg:flex-row mt-4">
+                <div class="flex flex-col mt-4 lg:flex-row">
                     <div class="lg:w-1/4">
-                        <div class="bg-gray-200 h-64 lg:h-auto">
-                            <img src="./images/movie_image.png" alt="Movie Image" class="w-full h-full object-cover">
+                        <div class="h-64 bg-gray-200 lg:h-auto">
+                            <img src="../Asset/poster.jpg" alt="Movie Image" class="object-cover w-full h-full">
                         </div>
                     </div>
-                    <div class="lg:w-3/4 lg:pl-6 mt-6 lg:mt-0">
+                    <div class="mt-6 lg:w-3/4 lg:pl-6 lg:mt-0">
                         <h1 class="text-4xl font-bold leading-tight">Title of the drama 1 that makes two lines</h1>
-                        <p class="text-gray-600 mt-2">Other Titles: Title 2, Title 3, Title 4</p>
+                        <p class="mt-2 text-gray-600">Other Titles: Title 2, Title 3, Title 4</p>
                         <p class="text-gray-600">Year: Spring 2024</p>
-                        <p class="text-gray-700 mt-4">Synopsis: I don't read it thoroughly, but I need to see genres and actors. That's what I want.</p>
-                        <p class="text-gray-700 mt-2">Genre: Genre 1, Genre 2, Genre 3</p>
-                        <p class="text-gray-700 mt-2">Rating: 3.9/5</p>
-                        <p class="text-gray-700 mt-2">Availability: Fansub @subsub on X</p>
+                        <p class="mt-4 text-gray-700">Synopsis: I don't read it thoroughly, but I need to see genres and actors. That's what I want.</p>
+                        <p class="mt-2 text-gray-700">Genre: Genre 1, Genre 2, Genre 3</p>
+                        <p class="mt-2 text-gray-700">Rating: 3.9/5</p>
+                        <p class="mt-2 text-gray-700">Availability: Fansub @subsub on X</p>
                     </div>
                 </div>
 
-                <div class="mt-10 flex flex-wrap -mx-2">
+                <div class="flex flex-wrap mt-10 -mx-2">
                     <div class="w-1/5 px-2">
-                        <div class="bg-gray-200 h-32"></div>
-                        <p class="text-center mt-2 text-gray-600">Actor 1</p>
+                        <div class="h-32 bg-gray-200"></div>
+                        <p class="mt-2 text-center text-gray-600">Actor 1</p>
                     </div>
                     <div class="w-1/5 px-2">
-                        <div class="bg-gray-200 h-32"></div>
-                        <p class="text-center mt-2 text-gray-600">Actor 2</p>
+                        <div class="h-32 bg-gray-200"></div>
+                        <p class="mt-2 text-center text-gray-600">Actor 2</p>
                     </div>
                     <div class="w-1/5 px-2">
-                        <div class="bg-gray-200 h-32"></div>
-                        <p class="text-center mt-2 text-gray-600">Actor 3</p>
+                        <div class="h-32 bg-gray-200"></div>
+                        <p class="mt-2 text-center text-gray-600">Actor 3</p>
                     </div>
                     <div class="w-1/5 px-2">
-                        <div class="bg-gray-200 h-32"></div>
-                        <p class="text-center mt-2 text-gray-600">Actor 4</p>
+                        <div class="h-32 bg-gray-200"></div>
+                        <p class="mt-2 text-center text-gray-600">Actor 4</p>
                     </div>
                     <div class="w-1/5 px-2">
-                        <div class="bg-gray-200 h-32"></div>
-                        <p class="text-center mt-2 text-gray-600">Actor 5</p>
+                        <div class="h-32 bg-gray-200"></div>
+                        <p class="mt-2 text-center text-gray-600">Actor 5</p>
                     </div>
                 </div>
 
-                <div class="mt-10 bg-gray-200 h-96 flex justify-center items-center">
+                <div class="flex items-center justify-center mt-10 bg-gray-200 h-96">
                     <div class="w-24 h-24 bg-gray-300"></div>
-                </div>
-
-                <!-- Comments Section -->
-                <div class="comment-section">
-                    <h2>People think about this Movie</h2>
-                    <div class="comment-list">
-                        <div class="comment-item">
-                            <div class="user-avatar"></div>
-                            <div class="comment-content">
-                                <div class="username">User 1</div>
-                                <div class="comment-date">Aug 30, 2024</div>
-                                <div class="rating">★★★☆☆</div>
-                                <div class="comment-text">Good movie but could be better.</div>
-                            </div>
-                        </div>
-                        <div class="comment-item">
-                            <div class="user-avatar"></div>
-                            <div class="comment-content">
-                                <div class="username">User 2</div>
-                                <div class="comment-date">Aug 28, 2024</div>
-                                <div class="rating">★★★★☆</div>
-                                <div class="comment-text">Really enjoyed it!</div>
-                            </div>
-                        </div>
-                        <div class="comment-item">
-                            <div class="user-avatar"></div>
-                            <div class="comment-content">
-                                <div class="username">User 3</div>
-                                <div class="comment-date">Aug 26, 2024</div>
-                                <div class="rating">★★★★★</div>
-                                <div class="comment-text">Amazing movie! Highly recommend.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Comment Form -->
-                    <div class="comment-form">
-                        <h2>Add Your Comment</h2>
-                        <form>
-                            <input type="text" placeholder="Your Name">
-                            <textarea placeholder="Your Comment"></textarea>
-                            <div class="rating-input">
-                                <label>Rating:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
-                                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-                                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
-                                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-                                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
-                                </div>
-                            </div>
-                            <input type="submit" value="Submit">
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
     </main>
+    <script src="js/admin.js"></script>
 </body>
-
-<script>
-    // JavaScript to close the modal
-    document.getElementById("closeModal").addEventListener("click", function() {
-        document.getElementById("movieApprovalModal").style.display = "none";
-    });
-</script>
 
 </html>

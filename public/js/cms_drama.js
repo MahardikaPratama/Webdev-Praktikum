@@ -26,3 +26,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Referensi tombol validate dan modal
+    const validateButton = document.querySelector("a[href='#']"); // Asumsikan tombol Validate memiliki href '#'
+    const modal = document.getElementById("movieApprovalModal");
+    const closeModalButton = document.getElementById("closeModal");
+
+    // Fungsi untuk menampilkan modal
+    validateButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        modal.style.display = "flex";
+    });
+
+    // Fungsi untuk menutup modal
+    closeModalButton.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    // Menutup modal saat klik di luar konten modal
+    window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});

@@ -98,7 +98,65 @@
                         </tbody>
                     </table>
                 </div>
+            </section>
+            <section>
+                <!-- Movie Approval Modal -->
+                <div id="movieApprovalModal" class="hidden">
+                    <div class="modal-content">
+                        <button id="closeModal" class="close-modal-btn">&times;</button>
 
+                        <div class="modal-header">
+                            <div class="modal-buttons">
+                                <button class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">Approve</button>
+                                <button class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5">Delete</button>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col mt-4 lg:flex-row">
+                            <div class="lg:w-1/4">
+                                <div class="h-64 bg-gray-200 lg:h-auto">
+                                    <img src="../Asset/poster.jpg" alt="Movie Image" class="object-cover w-full h-full">
+                                </div>
+                            </div>
+                            <div class="mt-6 lg:w-3/4 lg:pl-6 lg:mt-0">
+                                <h1 class="text-4xl font-bold leading-tight">Title of the drama 1 that makes two lines</h1>
+                                <p class="mt-2 text-gray-600">Other Titles: Title 2, Title 3, Title 4</p>
+                                <p class="text-gray-600">Year: Spring 2024</p>
+                                <p class="mt-4 text-gray-700">Synopsis: I don't read it thoroughly, but I need to see genres and actors. That's what I want.</p>
+                                <p class="mt-2 text-gray-700">Genre: Genre 1, Genre 2, Genre 3</p>
+                                <p class="mt-2 text-gray-700">Rating: 3.9/5</p>
+                                <p class="mt-2 text-gray-700">Availability: Fansub @subsub on X</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap mt-10 -mx-2">
+                            <div class="w-1/5 px-2">
+                                <div class="h-32 bg-gray-200"></div>
+                                <p class="mt-2 text-center text-gray-600">Actor 1</p>
+                            </div>
+                            <div class="w-1/5 px-2">
+                                <div class="h-32 bg-gray-200"></div>
+                                <p class="mt-2 text-center text-gray-600">Actor 2</p>
+                            </div>
+                            <div class="w-1/5 px-2">
+                                <div class="h-32 bg-gray-200"></div>
+                                <p class="mt-2 text-center text-gray-600">Actor 3</p>
+                            </div>
+                            <div class="w-1/5 px-2">
+                                <div class="h-32 bg-gray-200"></div>
+                                <p class="mt-2 text-center text-gray-600">Actor 4</p>
+                            </div>
+                            <div class="w-1/5 px-2">
+                                <div class="h-32 bg-gray-200"></div>
+                                <p class="mt-2 text-center text-gray-600">Actor 5</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-center mt-10 bg-gray-200 h-96">
+                            <div class="w-24 h-24 bg-gray-300"></div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
