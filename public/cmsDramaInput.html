@@ -24,7 +24,13 @@
                             <li><a href="cmsDramaInput.html" class="block px-4 py-2 text-gray-700 bg-gray-300 rounded-md">Input New Drama</a></li>
                         </ul>
                     </li>
-                    <!-- More sidebar links -->
+                    <li><a href="cmsCountries.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Countries</a></li>
+                    <li><a href="cmsAwards.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Awards</a></li>
+                    <li><a href="cmsGenres.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Genres</a></li>
+                    <li><a href="cmsActors.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Actors</a></li>
+                    <li><a href="cmsComments.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Comments</a></li>
+                    <li><a href="cmsUsers.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Users</a></li>
+                    <li><a href="loginPage.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Logout</a></li>
                 </ul>
             </div>
         </aside>
@@ -61,6 +67,11 @@
                             <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
                             <input type="text" id="country" name="country" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600" placeholder="Country">
                         </div>
+                        <!-- Cover Image -->
+                        <div class="md:col-span-2">
+                            <label for="cover-image" class="block text-sm font-medium text-gray-700">Cover Image</label>
+                            <input type="file" id="cover-image" name="cover-image" accept="image/*" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                        </div>
                         <!-- Synopsis -->
                         <div class="md:col-span-2">
                             <label for="synopsis" class="block text-sm font-medium text-gray-700">Synopsis</label>
@@ -74,7 +85,7 @@
                         <!-- Genres -->
                         <div class="md:col-span-2">
                             <label for="genres" class="block text-sm font-medium text-gray-700">Genres</label>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
                                 <!-- All 16 Genre Checkboxes -->
                                 <label><input type="checkbox" name="genres[]" value="Action" class="mr-2">Action</label>
                                 <label><input type="checkbox" name="genres[]" value="Adventure" class="mr-2">Adventure</label>
@@ -101,11 +112,11 @@
                             <div class="grid grid-cols-3 gap-4 mt-4">
                                 <!-- Actor placeholders with images -->
                                 <div class="flex items-center p-2 bg-gray-200 rounded-md">
-                                    <img src="path-to-actor-image1.jpg" alt="Actor 1" class="w-10 h-10 mr-2 rounded-full">
+                                    <img src="../Asset/conan.jpg" alt="Actor 1" class="w-10 h-10 mr-2 rounded-full">
                                     Actor 1 <button class="ml-auto text-sm text-red-500">x</button>
                                 </div>
                                 <div class="flex items-center p-2 bg-gray-200 rounded-md">
-                                    <img src="path-to-actor-image2.jpg" alt="Actor 2" class="w-10 h-10 mr-2 rounded-full">
+                                    <img src="../Asset/conan.jpg" alt="Actor 2" class="w-10 h-10 mr-2 rounded-full">
                                     Actor 2 <button class="ml-auto text-sm text-red-500">x</button>
                                 </div>
                                 <!-- More actor slots -->
@@ -136,5 +147,6 @@
     <footer class="z-50 p-4 text-center text-white bg-gray-800">
         <p>&copy; 2024 DramaKu. All rights reserved.</p>
     </footer>
+    <script src='./js/cms_drama.js'></script>
 </body>
 </html>
