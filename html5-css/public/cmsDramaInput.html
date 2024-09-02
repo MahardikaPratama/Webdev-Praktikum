@@ -49,24 +49,39 @@
                             <label for="alt-title" class="block text-sm font-medium text-gray-700">Alternative Title</label>
                             <input type="text" id="alt-title" name="alt-title" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600" placeholder="Alternative Title">
                         </div>
-                        <!-- Year Dropdown -->
-                        <div>
-                            <label for="year" class="block text-sm font-medium text-gray-700">Year</label>
-                            <select id="year" name="year" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
-                                <!-- Years from 2000 to 2024 -->
-                                <option disabled selected>Select Year</option>
-                                <script>
-                                    for (let year = 2000; year <= 2024; year++) {
-                                        document.write(`<option value="${year}">${year}</option>`);
-                                    }
-                                </script>
-                            </select>
+                        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                            <!-- Year Dropdown -->
+                            <div>
+                                <label for="year" class="block text-sm font-medium text-gray-700">Year</label>
+                                <select id="year" name="year" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                    <option disabled selected>Select Year</option>
+                                    <script>
+                                        for (let year = 2000; year <= 2024; year++) {
+                                            document.write(`<option value="${year}">${year}</option>`);
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                            <!-- Country Dropdown -->
+                            <div>
+                                <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                                <select id="country" name="country" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                    <option value="" disabled selected>Select Country</option>
+
+                                </select>
+                            </div>
+                            <!-- Status Dropdown -->
+                            <div>
+                                <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+                                <select id="status" name="status" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                    <option value="" disabled selected>Select Status</option>
+                                    <option value="Ongoing">Ongoing</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Upcoming">Upcoming</option>
+                                </select>
+                            </div>
                         </div>
-                        <!-- Country -->
-                        <div>
-                            <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
-                            <input type="text" id="country" name="country" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600" placeholder="Country">
-                        </div>
+                        
                         <!-- Cover Image -->
                         <div class="md:col-span-2">
                             <label for="cover-image" class="block text-sm font-medium text-gray-700">Cover Image</label>
@@ -137,9 +152,15 @@
                         </div>
                     </div>
                     <!-- Submit Button -->
-                    <div>
-                        <button type="submit" class="w-full px-4 py-2 text-white bg-orange-600 rounded-md hover:bg-orange-700 focus:ring-4 focus:ring-orange-300">Submit</button>
+                    <div class="flex gap-4">
+                        <!-- <button type="button" class="w-full px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-700 focus:ring-4 focus:ring-green-300">
+                            Preview
+                        </button> -->
+                        <button type="submit" class="w-full px-4 py-2 text-white bg-orange-600 rounded-md hover:bg-orange-700 focus:ring-4 focus:ring-orange-300">
+                            Submit
+                        </button>
                     </div>
+                    
                 </form>
             </section>
         </main>
@@ -147,6 +168,6 @@
     <footer class="z-50 p-4 text-center text-white bg-gray-800">
         <p>&copy; 2024 DramaKu. All rights reserved.</p>
     </footer>
-    <script src='./js/cms_drama.js'></script>
+    <script src='./js/input_drama.js'></script>
 </body>
 </html>
