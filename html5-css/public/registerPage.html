@@ -9,69 +9,72 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="flex items-center justify-center h-screen bg-gray-100">
-    <div class="w-full max-w-sm p-6 bg-white rounded-lg shadow-lg">
-        <h2 class="mb-4 text-xl font-bold text-center">Register</h2>
-        <form>
-            <div class="mb-3">
-                <label for="name" class="block text-sm font-semibold text-gray-700">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Full Name" required
-                    class="w-full p-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="block text-sm font-semibold text-gray-700">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email" required
-                    class="w-full p-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
-                <div class="relative">
-                    <input type="password" id="password" name="password" placeholder="Password" required
-                        class="w-full p-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
-                    <button type="button" id="passwordToggle" class="absolute transform -translate-y-1/2 right-2 top-1/2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-4 h-4 text-gray-500">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 12h.01M12 12h.01M9 12h.01M9 10a3 3 0 006 0v0a3 3 0 10-6 0v0z" />
-                        </svg>
+<body class="flex items-center justify-center min-h-screen text-gray-300 bg-gray-900">
+    <div class="flex flex-col w-full max-w-lg bg-gray-800 rounded-lg shadow-lg md:flex-row md:max-w-4xl">
+        <!-- Form Register -->
+        <div class="w-full p-6 md:w-1/2 md:px-8 lg:px-12">
+            <h2 class="mb-4 text-xl font-bold text-center text-white">Register</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="block mb-1 text-sm font-semibold text-gray-400">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Full Name" required
+                        class="w-full p-2 text-sm text-white bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="block mb-1 text-sm font-semibold text-gray-400">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required
+                        class="w-full p-2 text-sm text-white bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="block mb-1 text-sm font-semibold text-gray-400">Password</label>
+                    <div class="relative">
+                        <input type="password" id="password" name="password" placeholder="Password" required
+                            class="w-full p-2 text-sm text-white bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+                    <div class="flex items-center mt-4">
+                        <input id="togglePasswordCheckbox" type="checkbox" class="shrink-0 mt-0.5 border-gray-700 rounded text-orange-500 focus:ring-orange-500">
+                        <label for="togglePasswordCheckbox" class="ml-3 text-sm text-gray-400">Show password</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="confirm-password" class="block mb-1 text-sm font-semibold text-gray-400">Confirm Password</label>
+                    <div class="relative">
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required
+                            class="w-full p-2 text-sm text-white bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+                    <div class="flex items-center mt-4">
+                        <input id="toggleConfirmPasswordCheckbox" type="checkbox" class="shrink-0 mt-0.5 border-gray-700 rounded text-orange-500 focus:ring-orange-500">
+                        <label for="toggleConfirmPasswordCheckbox" class="ml-3 text-sm text-gray-400">Show password</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit"
+                        class="w-full p-2 text-sm font-semibold text-white transition bg-orange-600 rounded-lg hover:bg-orange-700">Register</button>
+                </div>
+                <div class="flex items-center justify-center mb-3">
+                    <div class="w-full border-t border-gray-200"></div>
+                    <span class="mx-2 text-xs text-gray-300">OR</span>
+                    <div class="w-full border-t border-gray-200"></div>
+                </div>
+                <div class="mb-3">
+                    <button type="button"
+                        class="flex items-center justify-center w-full p-2 text-sm font-semibold text-black transition bg-white border border-gray-300 rounded-lg hover:bg-gray-100">
+                        <img src="https://pluspng.com/img-png/google-adwords-logo-vector-png-google-favicon-2015-vector-google-developers-logo-vector-512.png"
+                            alt="Google Logo" class="w-4 h-4 mr-2">
+                        Register with Google
                     </button>
                 </div>
-            </div>
-            <div class="mb-3">
-                <label for="confirm-password" class="block text-sm font-semibold text-gray-700">Confirm Password</label>
-                <div class="relative">
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required
-                        class="w-full p-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
-                    <button type="button" id="confirmPasswordToggle" class="absolute transform -translate-y-1/2 right-2 top-1/2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-4 h-4 text-gray-500">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 12h.01M12 12h.01M9 12h.01M9 10a3 3 0 006 0v0a3 3 0 10-6 0v0z" />
-                        </svg>
-                    </button>
+                <div class="text-center">
+                    <span class="text-sm text-gray-400">Already have an account? </span>
+                    <a href="loginPage.html" class="text-sm text-blue-600 hover:underline">Login</a>
                 </div>
-            </div>
-            <div class="mb-3">
-                <button type="submit"
-                    class="w-full p-2 text-sm font-semibold text-white transition bg-orange-600 rounded-lg hover:bg-orange-700" id="registerButton">Register</button>
-            </div>
-            <div class="flex items-center justify-center mb-3">
-                <div class="w-full border-t border-gray-300"></div>
-                <span class="mx-2 text-xs text-gray-500">OR</span>
-                <div class="w-full border-t border-gray-300"></div>
-            </div>
-            <div class="mb-3">
-                <button type="button"
-                    class="flex items-center justify-center w-full p-2 text-sm font-semibold text-black transition bg-white border border-gray-300 rounded-lg hover:bg-gray-100">
-                    <img src="../Asset/google-icon.png"
-                        alt="Google Logo" class="w-4 h-4 mr-2">
-                    Register with Google
-                </button>
-            </div>
-            <div class="text-center">
-                <a href="loginPage.html" class="text-sm text-blue-600 hover:underline">Already have an account? Login</a>
-            </div>
-        </form>
+            </form>
+        </div>
+
+        <!-- Ilustrasi Gambar -->
+        <div class="hidden w-full p-6 md:block md:w-1/2">
+            <img src="https://th.bing.com/th/id/OIP.h8qCr42qmI2JNiJJSh5EBQHaEK?rs=1&pid=ImgDetMain" alt="Ilustrasi Register" class="object-contain w-full h-full">
+        </div>
     </div>
 
     <script src="js/register.js"></script>

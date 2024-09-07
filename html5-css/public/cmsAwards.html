@@ -7,58 +7,119 @@
         <!-- Mengimpor Tailwind CSS dari CDN untuk styling -->
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     </head>
 
-    <body class="flex flex-col min-h-screen bg-gray-100">
+    <body class="flex flex-col min-h-screen text-gray-300 bg-gray-900">
         <div class="flex flex-col flex-1 md:flex-row">
-            <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex flex-col w-64 transition-transform duration-300 transform -translate-x-full bg-white shadow-lg md:relative md:w-1/5 md:translate-x-0">
+            <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex flex-col w-64 transition-transform duration-300 transform -translate-x-full bg-gray-800 shadow-lg md:relative md:w-1/5 md:translate-x-0">
                 <div class="relative p-6">
-                    <!-- Tombol tutup sidebar untuk tampilan mobile -->
-                    <button id="close-sidebar" class="absolute p-2 text-gray-600 top-4 right-4 md:hidden focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <button id="close-sidebar" class="absolute p-2 text-gray-400 top-4 right-4 md:hidden focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-
-                    <!-- Judul dan menu navigasi -->
-                    <h2 class="mb-4 text-2xl font-bold">DramaKu</h2>
+                    <h2 class="flex items-center mb-4 text-2xl text-white">
+                        <img src="https://i.pinimg.com/originals/2c/ae/fe/2caefe0fe73204830ee22868604390d5.png" alt="Drama Icon" class="w-6 h-6 p-1 mr-2 bg-white border rounded-full" />
+                        DramaKu
+                    </h2>                
                     <ul class="space-y-2">
-                        <li><a href="cmsDrama.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Dramas</a></li>
-                        <li><a href="cmsCountries.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Countries</a></li>
-                        <li><a href="cmsAwards.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Awards</a></li>
-                        <li><a href="cmsGenres.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Genres</a></li>
-                        <li><a href="cmsActors.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Actors</a></li>
-                        <li><a href="cmsComments.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Comments</a></li>
-                        <li><a href="cmsUsers.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Users</a></li>
-                        <li><a href="loginPage.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Logout</a></li>
+                        <li class="rounded-md">
+                            <button id="accordion-button" class="flex items-center justify-between w-full px-4 py-2 text-left text-gray-300 rounded-md hover:bg-gray-700 focus:outline-none">
+                                <span class="flex items-center">
+                                    <i class="mr-2 fas fa-film"></i> <!-- Ikon film untuk Dramas -->
+                                    Dramas
+                                </span>
+                                <span id="accordion-icon" class="text-xl">+</span>
+                            </button>
+                            <ul id="accordion-content" class="mt-2 ml-4 space-y-2 rounded-md accordion-content">
+                                <li>
+                                    <a href="cmsDrama.html" class="items-center block px-4 py-2 text-gray-300 rounded-md hover:bg-gray-700 menu-link">
+                                        <i class="mr-2 fas fa-check"></i> <!-- Ikon check untuk Validate -->
+                                        Validate
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="cmsDramaInput.html" class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700">
+                                        <i class="mr-2 fas fa-plus"></i> <!-- Ikon tambah untuk Input New Drama -->
+                                        Input New Drama
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="cmsCountries.html" class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700">
+                                <i class="mr-2 fas fa-globe"></i> <!-- Ikon globe untuk Countries -->
+                                Countries
+                            </a>
+                        </li>
+                        <li>
+                            <a href="cmsAwards.html" class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700">
+                                <i class="mr-2 fas fa-trophy"></i> <!-- Ikon trophy untuk Awards -->
+                                Awards
+                            </a>
+                        </li>
+                        <li>
+                            <a href="cmsGenres.html" class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700">
+                                <i class="mr-2 fas fa-tags"></i> <!-- Ikon tags untuk Genres -->
+                                Genres
+                            </a>
+                        </li>
+                        <li>
+                            <a href="cmsActors.html" class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700">
+                                <i class="mr-2 fas fa-user"></i> <!-- Ikon user untuk Actors -->
+                                Actors
+                            </a>
+                        </li>
+                        <li>
+                            <a href="cmsComments.html" class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700">
+                                <i class="mr-2 fas fa-comments"></i> <!-- Ikon comments untuk Comments -->
+                                Comments
+                            </a>
+                        </li>
+                        <li>
+                            <a href="cmsUsers.html" class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700">
+                                <i class="mr-2 fas fa-users"></i> <!-- Ikon users untuk Users -->
+                                Users
+                            </a>
+                        </li>
+                        <li>
+                            <a href="loginPage.html" class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700">
+                                <i class="mr-2 fas fa-sign-out-alt"></i> <!-- Ikon logout untuk Logout -->
+                                Logout
+                            </a>
+                        </li>
                     </ul>
+                    
                 </div>
             </aside>
 
             <!-- Main Content -->
-            <main class="flex-1 p-6">
-                <button id="hamburger" class="p-2 text-gray-600 md:hidden focus:outline-none">
+            <main class="flex-1 p-4 md:p-6">
+                <button id="hamburger" class="p-2 text-gray-400 md:hidden focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-                <!-- Section for countries management -->
-                <section class="container p-6 mx-auto bg-white rounded-md shadow-md">
+
+                <!-- Section for awards management -->
+                <section class="container p-4 mx-auto bg-gray-800 rounded-md shadow-md md:p-6">
+                    <!-- Form to add a new award -->
                     <form class="flex flex-col w-full max-w-lg p-4 mb-6 space-y-4">
                         <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
                             <div class="flex flex-col w-full md:w-1/2">
-                                <label for="country" class="block font-medium text-gray-700">Country</label>
-                                <input type="text" id="country" name="country" class="block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-500" />
+                                <label for="country" class="block font-medium text-gray-300">Country</label>
+                                <input type="text" id="country" name="country" class="block w-full p-2 text-gray-300 bg-gray-800 border border-gray-700 rounded-md focus:ring focus:ring-orange-500" />
                             </div>
                             <div class="flex flex-col w-full md:w-1/2">
-                                <label for="year" class="block font-medium text-gray-700">Year</label>
-                                <input type="text" id="year" name="year" class="block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-500" />
+                                <label for="year" class="block font-medium text-gray-300">Year</label>
+                                <input type="text" id="year" name="year" class="block w-full p-2 text-gray-300 bg-gray-800 border border-gray-700 rounded-md focus:ring focus:ring-orange-500" />
                             </div>
                         </div>
 
                         <div class="flex flex-col w-full">
-                            <label for="awards" class="block font-medium text-gray-700">Awards</label>
-                            <input type="text" id="awards" name="awards" class="block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-500" />
+                            <label for="awards" class="block font-medium text-gray-300">Awards</label>
+                            <input type="text" id="awards" name="awards" class="block w-full p-2 text-gray-300 bg-gray-800 border border-gray-700 rounded-md focus:ring focus:ring-orange-500" />
                         </div>
 
                         <div class="flex justify-left">
@@ -66,70 +127,133 @@
                         </div>
                     </form>
 
-
-
-                    <!-- Table displaying countries -->
+                    <!-- Table displaying awards -->
                     <div class="overflow-x-auto">
-                        <table class="min-w-full bg-white">
+                        <table class="min-w-full text-gray-300 bg-gray-800">
                             <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 border-b"></th>
-                                    <th class="px-4 py-2 text-left border-b">Countries</th>
-                                    <th class="px-4 py-2 text-left border-b">Years</th>
-                                    <th class="px-4 py-2 text-left border-b">Awards</th>
-                                    <th class="px-4 py-2 text-left border-b">Actions</th>
+                                <tr class="bg-gray-700">
+                                    <th class="px-4 py-2 border-b border-gray-600"></th>
+                                    <th class="px-4 py-2 text-left border-b border-gray-600">Country</th>
+                                    <th class="px-4 py-2 text-left border-b border-gray-600">Year</th>
+                                    <th class="px-4 py-2 text-left border-b border-gray-600">Awards</th>
+                                    <th class="px-4 py-2 text-left border-b border-gray-600">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="odd:bg-red-100">
-                                    <td class="px-4 py-2 border-b">1</td>
-                                    <td class="px-4 py-2 border-b">Japan</td>
-                                    <td class="px-4 py-2 border-b">2024</td>
-                                    <td class="px-4 py-2 border-b">Japanese Drama Awards Spring 2024</td>
-                                    <td class="px-4 py-2 text-left border-b">
-                                        <a href="#" class="text-red-500 hover:text-red-600">Rename</a> |
-                                        <a href="#" class="text-red-500 hover:text-red-600">Delete</a>
+                                <tr class="bg-gray-800 odd:bg-gray-700">
+                                    <td class="px-4 py-2 border-b border-gray-600">1</td>
+                                    <td class="px-4 py-2 border-b border-gray-600">Japan</td>
+                                    <td class="px-4 py-2 border-b border-gray-600">2024</td>
+                                    <td class="px-4 py-2 border-b border-gray-600">Japanese Drama Awards Spring 2024</td>
+                                    <td class="px-4 py-2 text-left border-b border-gray-600">
+                                        <a href="#" class="text-red-500 hover:text-red-600">
+                                            <i class="fas fa-edit"></i> <!-- Ikon edit -->
+                                        </a>
+                                        |
+                                        <a href="#" class="text-red-500 hover:text-red-600">
+                                            <i class="fas fa-trash"></i> <!-- Ikon delete -->
+                                        </a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="px-4 py-2 border-b">2</td>
-                                    <td class="px-4 py-2 border-b">Japan</td>
-                                    <td class="px-4 py-2 border-b">2024</td>
-                                    <td class="px-4 py-2 border-b">Japanese Drama Awards Spring 2024</td>
-                                    <td class="px-4 py-2 text-left border-b">
-                                        <a href="#" class="text-red-500 hover:text-red-600">Rename</a> |
-                                        <a href="#" class="text-red-500 hover:text-red-600">Delete</a>
+                                <tr class="bg-gray-800">
+                                    <td class="px-4 py-2 border-b border-gray-600">2</td>
+                                    <td class="px-4 py-2 border-b border-gray-600">Korea</td>
+                                    <td class="px-4 py-2 border-b border-gray-600">2024</td>
+                                    <td class="px-4 py-2 border-b border-gray-600">Japanese Drama Awards Spring 2024</td>
+                                    <td class="px-4 py-2 text-left border-b border-gray-600">
+                                        <a href="#" class="text-red-500 hover:text-red-600">
+                                            <i class="fas fa-edit"></i> <!-- Ikon edit -->
+                                        </a>
+                                        |
+                                        <a href="#" class="text-red-500 hover:text-red-600">
+                                            <i class="fas fa-trash"></i> <!-- Ikon delete -->
+                                        </a>
                                     </td>
                                 </tr>
-                                <tr class="odd:bg-red-100">
-                                    <td class="px-4 py-2 border-b">3</td>
-                                    <td class="px-4 py-2 border-b">Korea</td>
-                                    <td class="px-4 py-2 border-b">2024</td>
-                                    <td class="px-4 py-2 border-b">Japanese Drama Awards Spring 2024</td>
-                                    <td class="px-4 py-2 text-left border-b">
-                                        <a href="#" class="text-red-500 hover:text-red-600">Rename</a> |
-                                        <a href="#" class="text-red-500 hover:text-red-600">Delete</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-2 border-b">4</td>
-                                    <td class="px-4 py-2 border-b">Korea</td>
-                                    <td class="px-4 py-2 border-b">2024</td>
-                                    <td class="px-4 py-2 border-b">Japanese Drama Awards Spring 2024</td>
-                                    <td class="px-4 py-2 text-left border-b">
-                                        <a href="#" class="text-red-500 hover:text-red-600">Rename</a> |
-                                        <a href="#" class="text-red-500 hover:text-red-600">Delete</a>
+                                <tr class="bg-gray-800 odd:bg-gray-700">
+                                    <td class="px-4 py-2 border-b border-gray-600">3</td>
+                                    <td class="px-4 py-2 border-b border-gray-600">China</td>
+                                    <td class="px-4 py-2 border-b border-gray-600">2024</td>
+                                    <td class="px-4 py-2 border-b border-gray-600">Chinese Film Awards Winter 2024</td>
+                                    <td class="px-4 py-2 text-left border-b border-gray-600">
+                                        <a href="#" class="text-red-500 hover:text-red-600">
+                                            <i class="fas fa-edit"></i> <!-- Ikon edit -->
+                                        </a>
+                                        |
+                                        <a href="#" class="text-red-500 hover:text-red-600">
+                                            <i class="fas fa-trash"></i> <!-- Ikon delete -->
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- Pagination and Data Info -->
+                    <div class="flex flex-col items-center mt-4">
+                        <!-- Showing Data Range -->
+                        <span class="text-sm text-gray-300">
+                            Showing <span class="font-semibold text-gray-100">1</span> to <span class="font-semibold text-gray-100">10</span> of <span class="font-semibold text-gray-100">100</span> Entries
+                        </span>
+                        
+                        <!-- Pagination Buttons -->
+                        <div class="inline-flex mt-2">
+                            <button class="flex items-center justify-center h-8 px-3 text-sm font-medium text-white bg-gray-700 rounded-l hover:bg-gray-900">
+                                <svg class="w-3.5 h-3.5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                                </svg>
+                                Prev
+                            </button>
+                            <button class="flex items-center justify-center h-8 px-3 text-sm font-medium text-white bg-gray-700 border-l border-gray-700 rounded-r hover:bg-gray-900">
+                                Next
+                                <svg class="w-3.5 h-3.5 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </section>
             </main>
         </div>
         <!-- Footer -->
-        <footer class="z-50 p-4 mt-auto text-center text-white bg-gray-800">
-            <p>&copy; 2024 DramaKu. All rights reserved.</p>
+        <footer class="z-50 p-4 text-center text-gray-300 bg-gray-800">
+            <div class="container mx-auto">
+                <p>&copy; 2024 DramaKu. All rights reserved.</p>
+                <div class="flex justify-center mt-2 space-x-4">
+                    <a
+                        href="https://facebook.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-white"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a
+                        href="https://twitter.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-white"
+                    >
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a
+                        href="https://instagram.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-white"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a
+                        href="https://linkedin.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-white"
+                    >
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
         </footer>
         <script src='./js/admin.js'></script>
     </body>

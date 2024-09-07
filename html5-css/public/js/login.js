@@ -1,11 +1,9 @@
-const loginButton2 = document.getElementById("loginButton");
-const passwordToggle = document.getElementById("passwordToggle");
-
-loginButton2.addEventListener("click", () => {
-    window.location.href = "cmsDrama.html";
+document.getElementById("togglePasswordCheckbox").addEventListener("change", function() {
+    var passwordField = document.getElementById("password");
+    if (this.checked) {
+        passwordField.type = "text";
+    } else {
+        passwordField.type = "password";
+    }
 });
 
-passwordToggle.addEventListener("click", () => {
-    const passwordField = document.getElementById("password");
-    passwordField.type = (passwordField.type === "password") ? "text" : "password";
-});

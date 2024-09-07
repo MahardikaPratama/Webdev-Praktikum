@@ -1,59 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DramaKu - Input New Drama</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-</head>
-<body class="flex flex-col min-h-screen bg-gray-100">
-    <div class="flex flex-col flex-1 md:flex-row">
-        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex flex-col w-64 bg-white shadow-lg md:relative md:w-1/5">
-            <div class="relative p-6">
-                <h2 class="mb-4 text-2xl">DramaKu</h2>
-                <ul class="space-y-2">
-                    <li class="rounded-md">
-                        <button id="accordion-button" class="flex items-center justify-between w-full px-4 py-2 text-left text-gray-700 bg-gray-300 rounded-md focus:outline-none">
-                            Dramas
-                            <span id="accordion-icon" class="text-xl">+</span>
-                        </button>
-                        <ul id="accordion-content" class="mt-2 ml-4 space-y-2 rounded-md accordion-content">
-                            <li><a href="#" id="validate-button" class="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-200">Validate</a></li>
-                            <li><a href="cmsDramaInput.html" class="block px-4 py-2 text-gray-700 bg-gray-300 rounded-md">Input New Drama</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="cmsCountries.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Countries</a></li>
-                    <li><a href="cmsAwards.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Awards</a></li>
-                    <li><a href="cmsGenres.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Genres</a></li>
-                    <li><a href="cmsActors.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Actors</a></li>
-                    <li><a href="cmsComments.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Comments</a></li>
-                    <li><a href="cmsUsers.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Users</a></li>
-                    <li><a href="loginPage.html" class="block px-4 py-2 text-gray-700 rounded-md menu-link hover:bg-gray-300">Logout</a></li>
-                </ul>
-            </div>
-        </aside>
-        <main class="flex-1 p-4 md:p-6">
-            <section class="container p-4 mx-auto bg-white rounded-md shadow-md md:p-6">
-                <h2 class="mb-4 text-2xl font-semibold text-gray-700">Input New Drama</h2>
-                <form action="#" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DramaKu - Input New Drama</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="./css/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        />
+    </head>
+    <body class="flex flex-col min-h-screen bg-gray-900">
+        <div class="flex flex-col flex-1 md:flex-row">
+            <aside
+                id="sidebar"
+                class="fixed inset-y-0 left-0 z-40 flex flex-col w-64 transition-transform duration-300 transform -translate-x-full bg-gray-800 shadow-lg md:relative md:w-1/5 md:translate-x-0"
+            >
+                <div class="relative p-6">
+                    <button
+                        id="close-sidebar"
+                        class="absolute p-2 text-gray-400 top-4 right-4 md:hidden focus:outline-none"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"
+                            ></path>
+                        </svg>
+                    </button>
+                    <h2 class="flex items-center mb-4 text-2xl text-white">
+                        <img
+                            src="https://i.pinimg.com/originals/2c/ae/fe/2caefe0fe73204830ee22868604390d5.png"
+                            alt="Drama Icon"
+                            class="w-6 h-6 p-1 mr-2 bg-white border rounded-full"
+                        />
+                        DramaKu
+                    </h2>
+                    <ul class="space-y-2">
+                        <li class="rounded-md">
+                            <button
+                                id="accordion-button"
+                                class="flex items-center justify-between w-full px-4 py-2 text-left text-gray-300 bg-gray-700 rounded-md focus:outline-none"
+                            >
+                                <span class="flex items-center">
+                                    <i class="mr-2 fas fa-film"></i>
+                                    <!-- Ikon film untuk Dramas -->
+                                    Dramas
+                                </span>
+                                <span id="accordion-icon" class="text-xl"
+                                    >+</span
+                                >
+                            </button>
+                            <ul
+                                id="accordion-content"
+                                class="mt-2 ml-4 space-y-2 rounded-md accordion-content"
+                            >
+                                <li>
+                                    <a
+                                        href="cmsDrama.html"
+                                        class="items-center block px-4 py-2 text-gray-300 bg-gray-700 rounded-md menu-link"
+                                    >
+                                        <i class="mr-2 fas fa-check"></i>
+                                        <!-- Ikon check untuk Validate -->
+                                        Validate
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="cmsDramaInput.html"
+                                        class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700"
+                                    >
+                                        <i class="mr-2 fas fa-plus"></i>
+                                        <!-- Ikon tambah untuk Input New Drama -->
+                                        Input New Drama
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a
+                                href="cmsCountries.html"
+                                class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700"
+                            >
+                                <i class="mr-2 fas fa-globe"></i>
+                                <!-- Ikon globe untuk Countries -->
+                                Countries
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="cmsAwards.html"
+                                class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700"
+                            >
+                                <i class="mr-2 fas fa-trophy"></i>
+                                <!-- Ikon trophy untuk Awards -->
+                                Awards
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="cmsGenres.html"
+                                class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700"
+                            >
+                                <i class="mr-2 fas fa-tags"></i>
+                                <!-- Ikon tags untuk Genres -->
+                                Genres
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="cmsActors.html"
+                                class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700"
+                            >
+                                <i class="mr-2 fas fa-user"></i>
+                                <!-- Ikon user untuk Actors -->
+                                Actors
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="cmsComments.html"
+                                class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700"
+                            >
+                                <i class="mr-2 fas fa-comments"></i>
+                                <!-- Ikon comments untuk Comments -->
+                                Comments
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="cmsUsers.html"
+                                class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700"
+                            >
+                                <i class="mr-2 fas fa-users"></i>
+                                <!-- Ikon users untuk Users -->
+                                Users
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="loginPage.html"
+                                class="items-center block px-4 py-2 text-gray-300 rounded-md menu-link hover:bg-gray-700"
+                            >
+                                <i class="mr-2 fas fa-sign-out-alt"></i>
+                                <!-- Ikon logout untuk Logout -->
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <main class="flex-1 p-4 md:p-6">
+                <button
+                    id="hamburger"
+                    class="p-2 text-gray-400 md:hidden focus:outline-none"
+                >
+                    <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"
+                        ></path>
+                    </svg>
+                </button>
+                <section class="container p-4 mx-auto bg-gray-800 rounded-md shadow-md md:p-6">
+                    <form class="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <!-- Title -->
-                        <div>
-                            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                            <input type="text" id="title" name="title" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600" placeholder="Drama Title">
+                        <div class="flex flex-col w-full">
+                            <label for="title" class="block font-medium text-gray-300">Title</label>
+                            <input type="text" id="title" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
                         </div>
+                
                         <!-- Alternative Title -->
-                        <div>
-                            <label for="alt-title" class="block text-sm font-medium text-gray-700">Alternative Title</label>
-                            <input type="text" id="alt-title" name="alt-title" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600" placeholder="Alternative Title">
+                        <div class="flex flex-col w-full">
+                            <label for="alternative-title" class="block font-medium text-gray-300">Alternative Title</label>
+                            <input type="text" id="alternative-title" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
                         </div>
-                        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                
+                        <!-- Year -->
+                        <div class="flex flex-col w-full">
                             <!-- Year Dropdown -->
                             <div>
-                                <label for="year" class="block text-sm font-medium text-gray-700">Year</label>
-                                <select id="year" name="year" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                <label for="year" class="block text-sm font-medium text-gray-300">Year</label>
+                                <select id="year" name="year" class="w-full px-3 py-2 mt-1 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
                                     <option disabled selected>Select Year</option>
                                     <script>
                                         for (let year = 2000; year <= 2024; year++) {
@@ -62,112 +207,247 @@
                                     </script>
                                 </select>
                             </div>
-                            <!-- Country Dropdown -->
-                            <div>
-                                <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
-                                <select id="country" name="country" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
-                                    <option value="" disabled selected>Select Country</option>
+                        </div>
 
-                                </select>
-                            </div>
-                            <!-- Status Dropdown -->
-                            <div>
-                                <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-                                <select id="status" name="status" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
-                                    <option value="" disabled selected>Select Status</option>
-                                    <option value="Ongoing">Ongoing</option>
-                                    <option value="Completed">Completed</option>
-                                    <option value="Upcoming">Upcoming</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <!-- Cover Image -->
-                        <div class="md:col-span-2">
-                            <label for="cover-image" class="block text-sm font-medium text-gray-700">Cover Image</label>
-                            <input type="file" id="cover-image" name="cover-image" accept="image/*" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
-                        </div>
-                        <!-- Synopsis -->
-                        <div class="md:col-span-2">
-                            <label for="synopsis" class="block text-sm font-medium text-gray-700">Synopsis</label>
-                            <textarea id="synopsis" name="synopsis" rows="4" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600" placeholder="Synopsis"></textarea>
-                        </div>
-                        <!-- Availability -->
-                        <div>
-                            <label for="availability" class="block text-sm font-medium text-gray-700">Availability</label>
-                            <input type="text" id="availability" name="availability" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600" placeholder="Fansub: @subgroup on platform">
-                        </div>
-                        <!-- Genres -->
-                        <div class="md:col-span-2">
-                            <label for="genres" class="block text-sm font-medium text-gray-700">Genres</label>
-                            <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
-                                <!-- All 16 Genre Checkboxes -->
-                                <label><input type="checkbox" name="genres[]" value="Action" class="mr-2">Action</label>
-                                <label><input type="checkbox" name="genres[]" value="Adventure" class="mr-2">Adventure</label>
-                                <label><input type="checkbox" name="genres[]" value="Comedy" class="mr-2">Comedy</label>
-                                <label><input type="checkbox" name="genres[]" value="Crime" class="mr-2">Crime</label>
-                                <label><input type="checkbox" name="genres[]" value="Drama" class="mr-2">Drama</label>
-                                <label><input type="checkbox" name="genres[]" value="Fantasy" class="mr-2">Fantasy</label>
-                                <label><input type="checkbox" name="genres[]" value="Historical" class="mr-2">Historical</label>
-                                <label><input type="checkbox" name="genres[]" value="Horror" class="mr-2">Horror</label>
-                                <label><input type="checkbox" name="genres[]" value="Romance" class="mr-2">Romance</label>
-                                <label><input type="checkbox" name="genres[]" value="Sci-Fi" class="mr-2">Sci-Fi</label>
-                                <label><input type="checkbox" name="genres[]" value="Slice of Life" class="mr-2">Slice of Life</label>
-                                <label><input type="checkbox" name="genres[]" value="Thriller" class="mr-2">Thriller</label>
-                                <label><input type="checkbox" name="genres[]" value="War" class="mr-2">War</label>
-                                <label><input type="checkbox" name="genres[]" value="Western" class="mr-2">Western</label>
-                                <label><input type="checkbox" name="genres[]" value="Mystery" class="mr-2">Mystery</label>
-                                <label><input type="checkbox" name="genres[]" value="Documentary" class="mr-2">Documentary</label>
-                            </div>
-                        </div>
-                        <!-- Actors -->
-                        <div class="md:col-span-2">
-                            <label for="actors" class="block text-sm font-medium text-gray-700">Add Actors (Up to 9)</label>
-                            <input type="text" id="actor-search" name="actor-search" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600" placeholder="Search Actor Names">
-                            <div class="grid grid-cols-3 gap-4 mt-4">
-                                <!-- Actor placeholders with images -->
-                                <div class="flex items-center p-2 bg-gray-200 rounded-md">
-                                    <img src="../Asset/conan.jpg" alt="Actor 1" class="w-10 h-10 mr-2 rounded-full">
-                                    Actor 1 <button class="ml-auto text-sm text-red-500">x</button>
-                                </div>
-                                <div class="flex items-center p-2 bg-gray-200 rounded-md">
-                                    <img src="../Asset/conan.jpg" alt="Actor 2" class="w-10 h-10 mr-2 rounded-full">
-                                    Actor 2 <button class="ml-auto text-sm text-red-500">x</button>
-                                </div>
-                                <!-- More actor slots -->
-                            </div>
-                        </div>
-                        <!-- Trailer and Award -->
-                        <div class="md:col-span-2">
-                            <label for="trailer" class="block text-sm font-medium text-gray-700">Link Trailer</label>
-                            <input type="url" id="trailer" name="trailer" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600" placeholder="Link to trailer">
-                        </div>
-                        <div class="md:col-span-2">
-                            <label for="award" class="block text-sm font-medium text-gray-700">Award</label>
-                            <select id="award" name="award" class="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
-                                <option value="" disabled selected>Select Award</option>
-                                <option value="Best Drama">Best Drama</option>
-                                <option value="Best Actor">Best Actor</option>
+                
+                        <!-- Country -->
+                        <div class="flex flex-col w-full">
+                            <label for="country" class="block font-medium text-gray-300">Country</label>
+                            <select id="country" name="country" class="w-full px-3 py-2 mt-1 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                <option disabled selected>Select Country</option>
+                                <option value="Japan">Japan</option>
+                                <option value="China">China</option>
+                                <option value="Korea">Korea</option>
                             </select>
                         </div>
-                    </div>
-                    <!-- Submit Button -->
-                    <div class="flex gap-4">
-                        <!-- <button type="button" class="w-full px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-700 focus:ring-4 focus:ring-green-300">
-                            Preview
-                        </button> -->
-                        <button type="submit" class="w-full px-4 py-2 text-white bg-orange-600 rounded-md hover:bg-orange-700 focus:ring-4 focus:ring-orange-300">
-                            Submit
-                        </button>
-                    </div>
-                    
-                </form>
-            </section>
-        </main>
-    </div>
-    <footer class="z-50 p-4 text-center text-white bg-gray-800">
-        <p>&copy; 2024 DramaKu. All rights reserved.</p>
-    </footer>
-    <script src='./js/input_drama.js'></script>
-</body>
+
+                
+                        <!-- Synopsis -->
+                        <div class="flex flex-col w-full col-span-2">
+                            <label for="synopsis" class="block font-medium text-gray-300">Synopsis</label>
+                            <textarea id="synopsis" rows="3" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500"></textarea>
+                        </div>
+                
+                        <!-- Availability -->
+                        <div class="flex flex-col w-full">
+                            <label for="availability" class="block font-medium text-gray-300">Availability</label>
+                            <input type="text" id="availability" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500"/>
+                        </div>
+                
+                        <!-- Country -->
+                        <div class="flex flex-col w-full">
+                            <label for="country" class="block font-medium text-gray-300">Status</label>
+                            <select id="country" name="country" class="w-full px-3 py-2 mt-1 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                <option disabled selected>Select Status</option>
+                                <option value="Japan">Ongoing</option>
+                                <option value="China">Completed</option>
+                                <option value="Korea">Upcoming</option>
+                            </select>
+                        </div>
+                
+                        <!-- Genres -->
+                        <div class="md:col-span-2">
+                            <label for="genres" class="block text-sm font-medium text-gray-300">Genres</label>
+                            <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
+                                <!-- All 16 Genre Checkboxes -->
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Action" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Action
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Adventure" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Adventure
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Comedy" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Comedy
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Crime" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Crime
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Drama" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Drama
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Fantasy" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Fantasy
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Historical" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Historical
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Horror" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Horror
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Romance" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Romance
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Sci-Fi" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Sci-Fi
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Slice of Life" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Slice of Life
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Thriller" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Thriller
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="War" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">War
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Western" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Western
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Mystery" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Mystery
+                                </label>
+                                <label class="inline-flex items-center text-gray-300">
+                                    <input type="checkbox" name="genres[]" value="Documentary" class="w-4 h-4 mr-2 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500">Documentary
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Cover Image -->
+                        <div class="flex flex-col w-full col-span-2">
+                            <label for="cover-image" class="block font-medium text-gray-300">Cover Image</label>
+                            <input type="file" id="cover-image" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
+                        </div>
+                        
+                        <!-- Add Actors (Up to 9) -->
+                        <div class="flex flex-col w-full col-span-2">
+                            <label for="actors" class="block font-medium text-gray-300">Actors (Up to 9)</label>
+                            <input type="text" id="actors" placeholder="Search Actor Names" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
+                        </div>
+
+                        <!-- Actors Grid (Repeat for up to 9 actors) -->
+                        <div id="actors-grid" class="grid grid-cols-2 gap-4 mb-4 sm:grid-cols-3 lg:grid-cols-4">
+                            <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
+                                <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
+                                    <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
+                                </div>
+                                <p class="mt-2 text-sm text-center text-gray-300">Actor 1</p>
+                                <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
+                            </div>
+                            <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
+                                <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
+                                    <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
+                                </div>
+                                <p class="mt-2 text-sm text-center text-gray-300">Actor 2</p>
+                                <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
+                            </div>
+                            <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
+                                <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
+                                    <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
+                                </div>
+                                <p class="mt-2 text-sm text-center text-gray-300">Actor 3</p>
+                                <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
+                            </div>
+                            <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
+                                <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
+                                    <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
+                                </div>
+                                <p class="mt-2 text-sm text-center text-gray-300">Actor 4</p>
+                                <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
+                            </div>
+                            <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
+                                <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
+                                    <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
+                                </div>
+                                <p class="mt-2 text-sm text-center text-gray-300">Actor 5</p>
+                                <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
+                            </div>
+                            <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
+                                <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
+                                    <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
+                                </div>
+                                <p class="mt-2 text-sm text-center text-gray-300">Actor 6</p>
+                                <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
+                            </div>
+                            <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
+                                <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
+                                    <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
+                                </div>
+                                <p class="mt-2 text-sm text-center text-gray-300">Actor 7</p>
+                                <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
+                            </div>
+                            <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
+                                <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
+                                    <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
+                                </div>
+                                <p class="mt-2 text-sm text-center text-gray-300">Actor 8</p>
+                                <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
+                            </div>
+                            <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
+                                <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
+                                    <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
+                                </div>
+                                <p class="mt-2 text-sm text-center text-gray-300">Actor 9</p>
+                                <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
+                            </div>
+                        </div>
+
+                        <div class="clear-both"></div>
+
+                        <!-- Link Trailer and Award in two columns -->
+                        <div class="flex flex-col">
+                            <label for="trailer" class="block font-medium text-gray-300">Link Trailer</label>
+                            <input type="url" id="trailer" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="award" class="block font-medium text-gray-300">Award</label>
+                            <select id="award" name="award" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                <option disabled selected>Select Award</option>
+                                <option value="Oscar">Oscar</option>
+                                <option value="Golden Globe">Golden Globe</option>
+                                <option value="BAFTA">BAFTA</option>
+                                <option value="Cannes">Cannes</option>
+                                <option value="Emmy">Emmy</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Submit Button with full width in two columns -->
+                        <div class="flex flex-col w-full col-span-2">
+                            <button type="submit" class="w-full p-2 text-white bg-orange-500 rounded-md hover:bg-orange-600">Submit</button>
+                        </div>
+
+                    </form>
+                </section>
+            </main>
+        </div>
+        <!-- Footer -->
+        <footer class="z-50 p-4 text-center text-gray-300 bg-gray-800">
+            <div class="container mx-auto">
+                <p>&copy; 2024 DramaKu. All rights reserved.</p>
+                <div class="flex justify-center mt-2 space-x-4">
+                    <a
+                        href="https://facebook.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-white"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a
+                        href="https://twitter.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-white"
+                    >
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a
+                        href="https://instagram.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-white"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a
+                        href="https://linkedin.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-white"
+                    >
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <script src="./js/input_drama.js"></script>
+    </body>
 </html>

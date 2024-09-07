@@ -29,12 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", function() {
     // Referensi tombol validate dan modal
-    const validateButton = document.getElementById("validate-button"); 
+    const approveButton = document.querySelector(".unapproved"); 
     const modal = document.getElementById("movieApprovalModal");
     const closeModalButton = document.getElementById("closeModal");
 
     // Fungsi untuk menampilkan modal
-    validateButton.addEventListener("click", function(event) {
+    approveButton.addEventListener("click", function(event) {
         event.preventDefault();
         modal.style.display = "flex";
     });
@@ -49,5 +49,34 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.target === modal) {
             modal.style.display = "none";
         }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar');
+    const hamburger = document.getElementById('hamburger');
+    const closeSidebar = document.getElementById('close-sidebar');
+    // Toggle sidebar visibility
+    hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('-translate-x-full');
+    });
+
+    closeSidebar.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollLeftButton = document.getElementById('scroll-left');
+    const scrollRightButton = document.getElementById('scroll-right');
+    const carousel = document.getElementById('actor-carousel');
+
+    scrollLeftButton.addEventListener('click', () => {
+        carousel.scrollBy({ left: -200, behavior: 'smooth' });
+    });
+
+    scrollRightButton.addEventListener('click', () => {
+        carousel.scrollBy({ left: 200, behavior: 'smooth' });
     });
 });
