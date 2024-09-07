@@ -180,23 +180,24 @@
                     </svg>
                 </button>
                 <section class="container p-4 mx-auto bg-gray-800 rounded-md shadow-md md:p-6">
-                    <form class="flex flex-col md:grid md:grid-cols-2 md:gap-4">
-                        <!-- Tiitle and Alternative Title -->
-                        <div class="flex flex-col w-full md:flex-row md:space-x-4 col-span-2">
-                            <div class="flex flex-col w-full">
-                                <label for="title" class="block font-medium text-gray-300">Title</label>
-                                <input type="text" id="title" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
-                            </div>
-                            <div class="flex flex-col w-full">
-                                <label for="alternative-title" class="block font-medium text-gray-300">Alternative Title</label>
-                                <input type="text" id="alternative-title" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
-                            </div>
+                    <form class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <!-- Title -->
+                        <div class="flex flex-col w-full">
+                            <label for="title" class="block font-medium text-gray-300">Title</label>
+                            <input type="text" id="title" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
                         </div>
-
-                        <!-- Year and Country -->
-                        <div class="flex flex-col w-full md:flex-row md:space-x-4 col-span-2">
-                            <div class="flex flex-col w-full">
-                                <label for="year" class="block font-medium text-gray-300">Year</label>
+                
+                        <!-- Alternative Title -->
+                        <div class="flex flex-col w-full">
+                            <label for="alternative-title" class="block font-medium text-gray-300">Alternative Title</label>
+                            <input type="text" id="alternative-title" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
+                        </div>
+                
+                        <!-- Year -->
+                        <div class="flex flex-col w-full">
+                            <!-- Year Dropdown -->
+                            <div>
+                                <label for="year" class="block text-sm font-medium text-gray-300">Year</label>
                                 <select id="year" name="year" class="w-full px-3 py-2 mt-1 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
                                     <option disabled selected>Select Year</option>
                                     <script>
@@ -206,43 +207,46 @@
                                     </script>
                                 </select>
                             </div>
-                            <div class="flex flex-col w-full">
-                                <label for="country" class="block font-medium text-gray-300">Country</label>
-                                <select id="country" name="country" class="w-full px-3 py-2 mt-1 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
-                                    <option disabled selected>Select Country</option>
-                                    <option value="Japan">Japan</option>
-                                    <option value="China">China</option>
-                                    <option value="Korea">Korea</option>
-                                </select>
-                            </div>
                         </div>
-                        
+
+                
+                        <!-- Country -->
+                        <div class="flex flex-col w-full">
+                            <label for="country" class="block font-medium text-gray-300">Country</label>
+                            <select id="country" name="country" class="w-full px-3 py-2 mt-1 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                <option disabled selected>Select Country</option>
+                                <option value="Japan">Japan</option>
+                                <option value="China">China</option>
+                                <option value="Korea">Korea</option>
+                            </select>
+                        </div>
+
+                
                         <!-- Synopsis -->
                         <div class="flex flex-col w-full col-span-2">
                             <label for="synopsis" class="block font-medium text-gray-300">Synopsis</label>
                             <textarea id="synopsis" rows="3" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500"></textarea>
                         </div>
-
-                        <!-- Avaibility and Status -->
-                        <div class="flex flex-col w-full md:flex-row md:space-x-4 col-span-2">
-                            <div class="flex flex-col w-full h-full">
-                                <label for="availability" class="block font-medium text-gray-300">Availability</label>
-                                <input type="text" id="availability" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500 flex-1"/>
-                            </div>
-                            <div class="flex flex-col w-full h-full">
-                                <label for="status" class="block font-medium text-gray-300">Status</label>
-                                <select id="status" name="status" class="w-full px-3 py-2 mt-1 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 flex-1">
-                                    <option disabled selected>Select Status</option>
-                                    <option value="Ongoing">Ongoing</option>
-                                    <option value="Completed">Completed</option>
-                                    <option value="Upcoming">Upcoming</option>
-                                </select>
-                            </div>
+                
+                        <!-- Availability -->
+                        <div class="flex flex-col w-full">
+                            <label for="availability" class="block font-medium text-gray-300">Availability</label>
+                            <input type="text" id="availability" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500"/>
                         </div>
-
+                
+                        <!-- Country -->
+                        <div class="flex flex-col w-full">
+                            <label for="country" class="block font-medium text-gray-300">Status</label>
+                            <select id="country" name="country" class="w-full px-3 py-2 mt-1 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                <option disabled selected>Select Status</option>
+                                <option value="Japan">Ongoing</option>
+                                <option value="China">Completed</option>
+                                <option value="Korea">Upcoming</option>
+                            </select>
+                        </div>
                 
                         <!-- Genres -->
-                        <div class="w-full col-span-2">
+                        <div class="md:col-span-2">
                             <label for="genres" class="block text-sm font-medium text-gray-300">Genres</label>
                             <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
                                 <!-- All 16 Genre Checkboxes -->
@@ -296,22 +300,21 @@
                                 </label>
                             </div>
                         </div>
-                
+
                         <!-- Cover Image -->
                         <div class="flex flex-col w-full col-span-2">
                             <label for="cover-image" class="block font-medium text-gray-300">Cover Image</label>
                             <input type="file" id="cover-image" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
                         </div>
-                
+                        
                         <!-- Add Actors (Up to 9) -->
                         <div class="flex flex-col w-full col-span-2">
                             <label for="actors" class="block font-medium text-gray-300">Actors (Up to 9)</label>
                             <input type="text" id="actors" placeholder="Search Actor Names" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
                         </div>
-                
+
                         <!-- Actors Grid (Repeat for up to 9 actors) -->
-                        <div id="actors-grid" class="grid grid-cols-2 gap-4 mb-4 sm:grid-cols-3 lg:grid-cols-4 col-span-2">
-                            <!-- Actor cards, repeat as needed -->
+                        <div id="actors-grid" class="grid grid-cols-2 gap-4 mb-4 sm:grid-cols-3 lg:grid-cols-4">
                             <div class="relative p-2 bg-gray-800 rounded-md shadow-md">
                                 <div class="w-12 h-16 mx-auto bg-gray-400 rounded">
                                     <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="w-12 h-16 mx-auto rounded" />
@@ -376,33 +379,33 @@
                                 <button class="absolute top-0 right-0 p-1 text-sm text-gray-400 hover:text-red-500">x</button>
                             </div>
                         </div>
-                
-                        <!-- Link Trailer and Award -->
-                        <div class="flex flex-col w-full md:flex-row md:space-x-4 col-span-2">
-                            <div class="flex flex-col w-full">
-                                <label for="trailer" class="block font-medium text-gray-300">Link Trailer</label>
-                                <input type="url" id="trailer" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
-                            </div>
-                            <div class="flex flex-col w-full">
-                                <label for="award" class="block font-medium text-gray-300">Award</label>
-                                <select id="award" name="award" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
-                                    <option disabled selected>Select Award</option>
-                                    <option value="Oscar">Oscar</option>
-                                    <option value="Golden Globe">Golden Globe</option>
-                                    <option value="BAFTA">BAFTA</option>
-                                    <option value="Cannes">Cannes</option>
-                                    <option value="Emmy">Emmy</option>
-                                </select>
-                            </div>
+
+                        <div class="clear-both"></div>
+
+                        <!-- Link Trailer and Award in two columns -->
+                        <div class="flex flex-col">
+                            <label for="trailer" class="block font-medium text-gray-300">Link Trailer</label>
+                            <input type="url" id="trailer" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:ring focus:ring-orange-500" />
                         </div>
-                
-                        <!-- Submit Button -->
+                        <div class="flex flex-col">
+                            <label for="award" class="block font-medium text-gray-300">Award</label>
+                            <select id="award" name="award" class="block w-full p-2 text-gray-300 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600">
+                                <option disabled selected>Select Award</option>
+                                <option value="Oscar">Oscar</option>
+                                <option value="Golden Globe">Golden Globe</option>
+                                <option value="BAFTA">BAFTA</option>
+                                <option value="Cannes">Cannes</option>
+                                <option value="Emmy">Emmy</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Submit Button with full width in two columns -->
                         <div class="flex flex-col w-full col-span-2">
                             <button type="submit" class="w-full p-2 text-white bg-orange-500 rounded-md hover:bg-orange-600">Submit</button>
                         </div>
+
                     </form>
                 </section>
-                
             </main>
         </div>
         <!-- Footer -->
