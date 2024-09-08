@@ -1,16 +1,18 @@
+// Sidebar.js
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ isVisible, toggleSidebar }) => {
     return (
         <aside
             id="sidebar"
-            className="fixed inset-y-0 left-0 z-40 flex flex-col w-64 transition-transform duration-300 transform -translate-x-full bg-white shadow-lg md:relative md:w-1/5 md:h-auto md:shadow-none md:translate-x-0"
+            className={`fixed inset-y-0 left-0 z-40 flex flex-col w-64 md:h-auto bg-gray-800 shadow-lg md:relative md:w-1/5 md:shadow-none transition-transform duration-300 ${isVisible ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
         >
             <div className="relative flex-1 p-6 overflow-y-auto">
                 <button
                     id="close-sidebar"
-                    className="absolute p-2 text-gray-600 top-4 right-4 md:hidden focus:outline-none"
+                    className="absolute p-2 text-gray-400 top-4 right-4 md:hidden focus:outline-none"
+                    onClick={toggleSidebar}
                 >
                     <svg
                         className="w-6 h-6"
@@ -27,30 +29,45 @@ const Sidebar = () => {
                         ></path>
                     </svg>
                 </button>
-                <h2 className="mb-4 text-2xl font-bold">DramaKu</h2>
+                <div className="flex items-center mb-4">
+                    <img src="https://i.pinimg.com/originals/2c/ae/fe/2caefe0fe73204830ee22868604390d5.png" alt="DramaKu Logo" className="w-8 h-8 mr-2 bg-white border rounded-full"/>
+                    <h2 className="text-2xl font-bold text-white">DramaKu</h2>
+                </div>
                 <ul className="space-y-2">
                     <li>
                         <Link
                             to="/"
-                            className="block px-4 py-2 text-gray-700 bg-gray-300 rounded-md"
+                            className="flex items-center px-4 py-2 text-gray-300 bg-gray-700 rounded-md"
                         >
+                            <i className="mr-4 fas fa-film"></i>
+                            All Dramas
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/"
+                            className="flex items-center px-4 py-2 text-gray-300 rounded-md hover:bg-gray-700"
+                        >
+                            <img src="https://media.istockphoto.com/id/537287287/id/vektor/bendera-jepang.jpg?s=612x612&w=0&k=20&c=BZEGVwtP918iV-Kw8J7DshVP8ZUvapxq47ezKz03LKU=" alt="Japan Flag" className="w-6 h-4 mr-2"/>
                             Japan
                         </Link>
                     </li>
                     <li>
                         <Link
                             to="/"
-                            className="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300"
+                            className="flex items-center px-4 py-2 text-gray-300 rounded-md hover:bg-gray-700"
                         >
-                            Korea
+                            <img src="https://media.istockphoto.com/id/537287169/id/vektor/bendera-cina.jpg?s=612x612&w=0&k=20&c=uGupXdzW8jt3glSFmZTO8dY9rdXHITdJHsgxeX6ryIU=" alt="China Flag" className="w-6 h-4 mr-2"/>
+                            China
                         </Link>
                     </li>
                     <li>
                         <Link
                             to="/"
-                            className="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-300"
+                            className="flex items-center px-4 py-2 text-gray-300 rounded-md hover:bg-gray-700"
                         >
-                            China
+                            <img src="https://media.istockphoto.com/id/1132287785/id/vektor/bendera-korea-selatan.jpg?s=612x612&w=0&k=20&c=7hymvujlLAAgdYiRc52VhLOeKBGM6Z6eJcjQNzc6fhI=" alt="Korea Flag" className="w-6 h-4 mr-2"/>
+                            Korea
                         </Link>
                     </li>
                 </ul>
