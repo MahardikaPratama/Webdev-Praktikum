@@ -27,6 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar');
+    const hamburger = document.getElementById('hamburger');
+    const closeSidebar = document.getElementById('close-sidebar');
+    // Toggle sidebar visibility
+    hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('-translate-x-full');
+    });
+
+    closeSidebar.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     // Referensi tombol validate dan modal
     const approveButton = document.querySelector(".unapproved"); 
@@ -49,21 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.target === modal) {
             modal.style.display = "none";
         }
-    });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const sidebar = document.getElementById('sidebar');
-    const hamburger = document.getElementById('hamburger');
-    const closeSidebar = document.getElementById('close-sidebar');
-    // Toggle sidebar visibility
-    hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('-translate-x-full');
-    });
-
-    closeSidebar.addEventListener('click', () => {
-        sidebar.classList.add('-translate-x-full');
     });
 });
 
