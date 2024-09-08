@@ -42,41 +42,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Referensi tombol validate dan modal
-    const approveButton = document.querySelector(".unapproved"); 
-    const modal = document.getElementById("movieApprovalModal");
-    const closeModalButton = document.getElementById("closeModal");
 
-    // Fungsi untuk menampilkan modal
-    approveButton.addEventListener("click", function(event) {
-        event.preventDefault();
-        modal.style.display = "flex";
-    });
-
-    // Fungsi untuk menutup modal
-    closeModalButton.addEventListener("click", function() {
-        modal.style.display = "none";
-    });
-
-    // Menutup modal saat klik di luar konten modal
-    window.addEventListener("click", function(event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
+    const openModalButton = document.getElementById('openModalButton');
+    const closeModalButton = document.getElementById('closeModal');
+    const modal = document.getElementById('movieApprovalModal');
+    const approveButton = document.getElementById('approveButton');
+    const deleteButton = document.getElementById('deleteButton');
     const scrollLeftButton = document.getElementById('scroll-left');
     const scrollRightButton = document.getElementById('scroll-right');
     const carousel = document.getElementById('actor-carousel');
 
-    scrollLeftButton.addEventListener('click', () => {
-        carousel.scrollBy({ left: -200, behavior: 'smooth' });
+    openModalButton.addEventListener('click', function () {
+        modal.classList.remove('hidden');
     });
 
-    scrollRightButton.addEventListener('click', () => {
-        carousel.scrollBy({ left: 200, behavior: 'smooth' });
+    closeModalButton.addEventListener('click', function () {
+        modal.classList.add('hidden');  
+    });
+
+    approveButton.addEventListener('click', function () {
+        modal.classList.add('hidden');
+    });
+
+    deleteButton.addEventListener('click', function () {
+        modal.classList.add('hidden');
+    });
+
+    scrollLeftButton.addEventListener('click', function () {
+        carousel.scrollBy({ left: -100, behavior: 'smooth' });
+    });
+
+    scrollRightButton.addEventListener('click', function () {
+        carousel.scrollBy({ left: 100, behavior: 'smooth' });
     });
 });

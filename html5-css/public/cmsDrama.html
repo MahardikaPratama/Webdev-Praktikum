@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DramaKu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./css/pop_up.css">
-    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body class="flex flex-col min-h-screen text-gray-300 bg-gray-900">
@@ -149,7 +147,7 @@
                                     <p>I love this drama. It taught me a lot about money and finance. Love is not everything. We need to face the reality too. Being stoic is the best.</p>
                                 </td>
                                 <td class="w-1/6 px-4 py-2 border-b border-gray-600 unapproved">
-                                    <a href="#" class="flex items-center text-red-500 hover:text-red-700 focus:outline-none">
+                                    <a id="openModalButton" class="flex items-center text-red-500 hover:text-red-700 focus:outline-none">
                                         <i class="mr-2 fas fa-times-circle"></i> 
                                         Unapproved
                                     </a>
@@ -191,118 +189,127 @@
                     </div>
                 </div>                
             </section>
+            <!-- Modal -->
             <section>
-                <div id="movieApprovalModal" class="hidden">
-                    <div class="bg-gray-900 modal-content">
-                        <button id="closeModal" class="text-white close-modal-btn">&times;</button>
-        
-                        <div class="modal-header">
-                            <div class="modal-buttons">
-                                <button class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">Approve</button>
-                                <button class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5">Delete</button>
-                            </div>
-                        </div>
-        
-                        <div class="flex flex-col mt-4 lg:flex-row">
-                            <div class="lg:w-1/4">
-                                <div class="h-64 bg-gray-200 lg:h-auto">
-                                    <img src="https://cdn.myanimelist.net/images/anime/1208/94745.jpg" alt="Drama Poster" class="object-cover w-full h-full">
-                                </div> 
-                            </div>
-                            <div class="mt-6 lg:w-3/4 lg:pl-6 lg:mt-0">
-                                <h1 class="text-4xl font-bold leading-tight text-white">Title of the drama 1 that makes two lines</h1>
-                                <p class="mt-2 text-gray-400">Other Title: Title 2, Title 3, Title 4</p>
-                                <p class="text-gray-400">Year: Spring 2024</p>
-                                <p class="mt-4 text-gray-400">
-                                    Synopsis: somewhere unholy. I don't read it thoroughly. But when I read it, I'm so genuine. I need to stop genres and
-                                    articles. That's what I want.
-                                </p>
-                                <p class="mt-2 text-gray-400">Genre: Genre 1, Genre 2, Genre 3</p>
-                                <p class="mt-2 text-gray-400">Rating: 9.8/10</p>
-                                <p class="mt-2 text-gray-400">Availability: Netflix / Crunchyroll</p>
-                            </div>
-                        </div>
-            
-                        <div class="mt-10">
-                            <h2 class="mb-4 text-2xl font-bold text-white">Actors</h2>
-                            <div class="relative">
-                                <!-- Scroll buttons -->
-                                <button id="scroll-left" class="absolute left-0 p-2 text-white transform -translate-y-1/2 bg-gray-800 rounded-full shadow-md top-1/2 hover:bg-gray-700">
-                                    <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button id="scroll-right" class="absolute right-0 p-2 text-white transform -translate-y-1/2 bg-gray-800 rounded-full shadow-md top-1/2 hover:bg-gray-700">
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                    
-                                <div id="actor-carousel" class="flex py-2 space-x-4 overflow-x-auto">
-                                    <div class="flex-none w-32">
-                                        <div class="h-40 bg-gray-200">
-                                            <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="object-cover w-full h-full rounded-md">
-                                        </div>
-                                        <p class="mt-2 text-center text-gray-400">Elric, Alphonse</p>
-                                    </div>
-                                    <div class="flex-none w-32">
-                                        <div class="h-40 bg-gray-200">
-                                            <img src="https://cdn.myanimelist.net/images/characters/5/54265.jpg" alt="Actor 2" class="object-cover w-full h-full rounded-md">
-                                        </div>
-                                        <p class="mt-2 text-center text-gray-400">Edward, Alphonse</p>
-                                    </div>
-                                    <div class="flex-none w-32">
-                                        <div class="h-40 bg-gray-200">
-                                            <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 3" class="object-cover w-full h-full rounded-md">
-                                        </div>
-                                        <p class="mt-2 text-center text-gray-400">Actor 3</p>
-                                    </div>
-                                    <div class="flex-none w-32">
-                                        <div class="h-40 bg-gray-200">
-                                            <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 4" class="object-cover w-full h-full rounded-md">
-                                        </div>
-                                        <p class="mt-2 text-center text-gray-400">Actor 4</p>
-                                    </div>
-                                    <div class="flex-none w-32">
-                                        <div class="h-40 bg-gray-200">
-                                            <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 5" class="object-cover w-full h-full rounded-md">
-                                        </div>
-                                        <p class="mt-2 text-center text-gray-400">Actor 5</p>
-                                    </div>
-                                    <div class="flex-none w-32">
-                                        <div class="h-40 bg-gray-200">
-                                            <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 6" class="object-cover w-full h-full rounded-md">
-                                        </div>
-                                        <p class="mt-2 text-center text-gray-400">Actor 6</p>
-                                    </div>
-                                    <div class="flex-none w-32">
-                                        <div class="h-40 bg-gray-200">
-                                            <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 7" class="object-cover w-full h-full rounded-md">
-                                        </div>
-                                        <p class="mt-2 text-center text-gray-400">Actor 7</p>
-                                    </div>
-                                    <div class="flex-none w-32">
-                                        <div class="h-40 bg-gray-200">
-                                            <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 8" class="object-cover w-full h-full rounded-md">
-                                        </div>
-                                        <p class="mt-2 text-center text-gray-400">Actor 8</p>
-                                    </div>
-                                    <div class="flex-none w-32">
-                                        <div class="h-40 bg-gray-200">
-                                            <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 9" class="object-cover w-full h-full rounded-md">
-                                        </div>
-                                        <p class="mt-2 text-center text-gray-400">Actor 9</p>
+                <div id="movieApprovalModal" class="fixed inset-0 items-start justify-center bg-black bg-opacity-50 z-[9999] overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                    <!-- Background backdrop -->
+                    <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"></div>
+
+                    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                        <div class="flex items-center justify-center min-h-full p-4 text-center sm:items-center sm:p-0">
+                            <div class="relative overflow-hidden text-left transition-all transform bg-gray-900 rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-3xl">
+                                <button id="closeModal" class="absolute text-2xl text-white top-4 right-4">&times;</button>
+                                <div class="modal-header">
+                                    <div class="flex justify-center gap-5 mt-4">
+                                        <button id="approveButton" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">Approve</button>
+                                        <button id="deleteButton" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5">Delete</button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-            
-                        <div class="flex items-center justify-center mt-10 bg-gray-200 h-96">
-                            <div class="w-full h-full">
-                                <iframe class="w-full h-full" 
-                                        src="https://www.youtube.com/embed/elyXcwunIYA?si=Ezk9nZnUBenKH4Ch" 
-                                        title="YouTube video player" 
-                                        frameborder="0" 
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                        referrerpolicy="strict-origin-when-cross-origin" 
-                                        allowfullscreen>
-                                </iframe>
+
+                                <div class="p-6">
+                                    <div class="flex flex-col lg:flex-row">
+                                        <div class="lg:w-1/4">
+                                            <div class="h-64 bg-gray-200 lg:h-auto">
+                                                <img src="https://cdn.myanimelist.net/images/anime/1208/94745.jpg" alt="Drama Poster" class="object-cover w-full h-full">
+                                            </div> 
+                                        </div>
+                                        <div class="mt-6 lg:w-3/4 lg:pl-6 lg:mt-0">
+                                            <h1 class="text-4xl font-bold leading-tight text-white">Title of the drama 1 that makes two lines</h1>
+                                            <p class="mt-2 text-gray-400">Other Title: Title 2, Title 3, Title 4</p>
+                                            <p class="text-gray-400">Year: Spring 2024</p>
+                                            <p class="mt-4 text-gray-400">
+                                                Synopsis: somewhere unholy. I don't read it thoroughly. But when I read it, I'm so genuine. I need to stop genres and
+                                                articles. That's what I want.
+                                            </p>
+                                            <p class="mt-2 text-gray-400">Genre: Genre 1, Genre 2, Genre 3</p>
+                                            <p class="mt-2 text-gray-400">Rating: 9.8/10</p>
+                                            <p class="mt-2 text-gray-400">Availability: Netflix / Crunchyroll</p>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="mt-10">
+                                        <h2 class="mb-4 text-2xl font-bold text-white">Actors</h2>
+                                        <div class="relative">
+                                            <!-- Scroll buttons -->
+                                            <button id="scroll-left" class="absolute left-0 p-2 text-white transform -translate-y-1/2 bg-gray-800 rounded-full shadow-md top-1/2 hover:bg-gray-700">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <button id="scroll-right" class="absolute right-0 p-2 text-white transform -translate-y-1/2 bg-gray-800 rounded-full shadow-md top-1/2 hover:bg-gray-700">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                
+                                            <div id="actor-carousel" class="flex py-2 space-x-4 overflow-x-auto">
+                                                <div class="flex-none w-32">
+                                                    <div class="h-40 bg-gray-200">
+                                                        <img src="https://cdn.myanimelist.net/images/characters/9/72533.jpg" alt="Actor 1" class="object-cover w-full h-full rounded-md">
+                                                    </div>
+                                                    <p class="mt-2 text-center text-gray-400">Elric, Alphonse</p>
+                                                </div>
+                                                <div class="flex-none w-32">
+                                                    <div class="h-40 bg-gray-200">
+                                                        <img src="https://cdn.myanimelist.net/images/characters/5/54265.jpg" alt="Actor 2" class="object-cover w-full h-full rounded-md">
+                                                    </div>
+                                                    <p class="mt-2 text-center text-gray-400">Edward, Alphonse</p>
+                                                </div>
+                                                <div class="flex-none w-32">
+                                                    <div class="h-40 bg-gray-200">
+                                                        <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 3" class="object-cover w-full h-full rounded-md">
+                                                    </div>
+                                                    <p class="mt-2 text-center text-gray-400">Actor 3</p>
+                                                </div>
+                                                <div class="flex-none w-32">
+                                                    <div class="h-40 bg-gray-200">
+                                                        <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 4" class="object-cover w-full h-full rounded-md">
+                                                    </div>
+                                                    <p class="mt-2 text-center text-gray-400">Actor 4</p>
+                                                </div>
+                                                <div class="flex-none w-32">
+                                                    <div class="h-40 bg-gray-200">
+                                                        <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 5" class="object-cover w-full h-full rounded-md">
+                                                    </div>
+                                                    <p class="mt-2 text-center text-gray-400">Actor 5</p>
+                                                </div>
+                                                <div class="flex-none w-32">
+                                                    <div class="h-40 bg-gray-200">
+                                                        <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 6" class="object-cover w-full h-full rounded-md">
+                                                    </div>
+                                                    <p class="mt-2 text-center text-gray-400">Actor 6</p>
+                                                </div>
+                                                <div class="flex-none w-32">
+                                                    <div class="h-40 bg-gray-200">
+                                                        <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 7" class="object-cover w-full h-full rounded-md">
+                                                    </div>
+                                                    <p class="mt-2 text-center text-gray-400">Actor 7</p>
+                                                </div>
+                                                <div class="flex-none w-32">
+                                                    <div class="h-40 bg-gray-200">
+                                                        <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 8" class="object-cover w-full h-full rounded-md">
+                                                    </div>
+                                                    <p class="mt-2 text-center text-gray-400">Actor 8</p>
+                                                </div>
+                                                <div class="flex-none w-32">
+                                                    <div class="h-40 bg-gray-200">
+                                                        <img src="https://cdn.myanimelist.net/images/characters/2/241413.jpg" alt="Actor 9" class="object-cover w-full h-full rounded-md">
+                                                    </div>
+                                                    <p class="mt-2 text-center text-gray-400">Actor 9</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="flex items-center justify-center mt-10 bg-gray-200 h-96">
+                                        <div class="w-full h-full">
+                                            <iframe class="w-full h-full" 
+                                                    src="https://www.youtube.com/embed/elyXcwunIYA?si=Ezk9nZnUBenKH4Ch" 
+                                                    title="YouTube video player" 
+                                                    frameborder="0" 
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                                    referrerpolicy="strict-origin-when-cross-origin" 
+                                                    allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
