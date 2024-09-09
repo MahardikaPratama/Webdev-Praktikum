@@ -38,3 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const filters = document.querySelectorAll('.filter-content');
+    const filterButton = document.getElementById('filter-button');
+    const closeFilterButton = document.getElementById('clear-filter-button');
+
+    // Toggle filter visibility
+    filterButton.addEventListener('click', () => {
+        filters.forEach(filter => filter.classList.toggle('hidden'));
+        filterButton.classList.add('hidden');
+        closeFilterButton.classList.remove('hidden');
+    });
+
+    // Hide filter and show filter button
+    closeFilterButton.addEventListener('click', () => {
+        filters.forEach(filter => filter.classList.add('hidden'));
+        filterButton.classList.remove('hidden');
+        closeFilterButton.classList.add('hidden');
+    });
+});
