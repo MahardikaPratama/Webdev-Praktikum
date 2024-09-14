@@ -1,0 +1,14 @@
+.table-auto {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-auto th, .table-auto td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #3a3a5a;
+}
+
+.bg-green-500:hover, .bg-red-500:hover {
+  opacity: 0.8;
+}

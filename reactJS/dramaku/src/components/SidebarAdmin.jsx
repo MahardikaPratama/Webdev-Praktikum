@@ -16,9 +16,11 @@ const SidebarAdmin = ({ isVisible, toggleSidebar }) => {
 
     return (
         <aside
+        
             id="sidebar"
             className={`fixed inset-y-0 left-0 z-40 flex flex-col w-64 transition-transform duration-300 transform ${isVisible ? 'translate-x-0' : '-translate-x-full'} bg-gray-800 shadow-lg md:relative md:w-1/5 md:translate-x-0`}
         >
+            
             <div className="relative p-6">
                 <button
                     id="close-sidebar"
@@ -48,12 +50,24 @@ const SidebarAdmin = ({ isVisible, toggleSidebar }) => {
                     />
                     DramaKu
                 </h2>
+                
                 <ul className="space-y-2">
+                <li>
+                        <Link
+                            to="/dashboard"
+                            className={`items-center block px-4 py-2 text-gray-300 rounded-md ${isActiveLink('/cms-country') ? 'bg-gray-700' : 'hover:bg-gray-700'} menu-link`}
+                        >
+                            <FontAwesomeIcon icon={faGlobe} className="mr-2" />
+                            Dashboard
+                        </Link>
+                    </li>
                     <li className="rounded-md">
+                        
                         <button
                             id="accordion-button"
                             className={`flex items-center justify-between w-full px-4 py-2 text-left text-gray-300 focus:outline-none ${isActiveLink('/cms-drama') || isActiveLink('/cms-drama-input') ? 'bg-gray-700' : 'hover:bg-gray-700'} menu-link`}
                             onClick={toggleAccordion}
+
                         >
                             <span className="flex items-center">
                                 <FontAwesomeIcon icon={faFilm} className="mr-2" />
