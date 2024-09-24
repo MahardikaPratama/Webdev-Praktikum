@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import Sidebar from "../components/Sidebar";
+import React, { useState, useEffect } from "react";
+import PaginationHome from './PaginationHome';
+import SidebarNavbar from "../components/SidebarNavbar";
 import Card from "../components/Card";
 import FilterSortOptions from "../components/FilterSortOptions";
 import SearchCard from "../components/SearchCard";
 import { useNavigate } from "react-router-dom";
-import '../css/style.css';
-import moviesData from '../data/movies.json'; 
+import "../css/style.css";
+import moviesData from "../data/movies.json";
 import Footer from "../components/footer";
+import Carousel from "../components/Carousel";
 
-const Home = () => {
-    // State untuk mengontrol visibilitas sidebar
-    const [isSidebarVisible, setSidebarVisible] = useState(false);
+function temp() {
     // State untuk menyimpan nilai input pencarian
     const [searchTerm, setSearchTerm] = useState('');
     // State untuk menyimpan hasil pencarian
@@ -31,26 +31,16 @@ const Home = () => {
         award: '',
         country: ''
     });
-    
+
     const [sortOption, setSortOption] = useState('');
 
     // Hook untuk navigasi
     const navigate = useNavigate();
-    
-    // Fungsi untuk toggle visibilitas sidebar
-    const toggleSidebar = () => {
-        setSidebarVisible(!isSidebarVisible);
-    };
 
     // Fungsi untuk menangani klik pada card drama
     const handleDramaClick = (id) => {
         console.log("Navigating to Detail Page with ID:", id);
         navigate(`/detail/${id}`);
-    };
-
-    // Fungsi untuk menangani button login
-    const handleLoginClick = () => {
-        navigate("/login");
     };
 
     // Fungsi untuk menangani perubahan input pencarian
@@ -98,7 +88,7 @@ const Home = () => {
             ...prevState,
             country
         }));
-    
+
         // Apply the country filter based on updated filterOptions
         let filteredMovies = [...moviesData];
         if (country) {
@@ -116,15 +106,15 @@ const Home = () => {
     // Fungsi untuk menerapkan filter dan sort saat tombol Submit diklik
     const handleSubmitFilterSort = () => {
         let filteredMovies = [...moviesData];
-
+    
         if (filterOptions.year) {
-            filteredMovies = filteredMovies.filter(movie => movie.year === filterOptions.year);
+            filteredMovies = filteredMovies.filter(movie => movie.year === parseInt(filterOptions.year));
         }
         if (filterOptions.genre) {
             filteredMovies = filteredMovies.filter(movie => movie.genres.includes(filterOptions.genre));
         }
         if (filterOptions.status) {
-            filteredMovies = filteredMovies.filter(movie => movie.status === filterOptions.status);
+            filteredMovies = filteredMovies.filter(movie => movie.status.includes(filterOptions.status));
         }
         if (filterOptions.avaibility) {
             filteredMovies = filteredMovies.filter(movie => movie.avaibility.includes(filterOptions.avaibility));
@@ -132,7 +122,7 @@ const Home = () => {
         if (filterOptions.award) {
             filteredMovies = filteredMovies.filter(movie => movie.award === filterOptions.award);
         }
-
+    
         // Sort berdasarkan sortOption
         switch (sortOption) {
             case 'title-asc':
@@ -156,82 +146,31 @@ const Home = () => {
             default:
                 break;
         }
-
+    
         setMovies(filteredMovies);
     };
 
+    useEffect(() => {
+        handleSubmitFilterSort();
+    }, [filterOptions, sortOption]);
+
     return (
         <div className="flex flex-col min-h-screen text-gray-300 bg-gray-900">
-            <div className="flex flex-col flex-1 md:flex-row">
-                {/* Sidebar */}
-                <Sidebar
-                    isVisible={isSidebarVisible}
-                    toggleSidebar={toggleSidebar}
-                    onCountryFilter={handleCountryFilter}
-                    currentFilter={countryFilter}
-                />
-                <main className="flex-1 p-6">
-                    {/* Header dengan tombol untuk toggle sidebar dan login */}
-                    <div className="flex items-center justify-between mb-4 md:justify-end">
-                        <button id="hamburger" className="p-2 text-gray-400 md:hidden focus:outline-none" onClick={toggleSidebar}>
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                        <button onClick={handleLoginClick} id="login-button" type="button" className="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                            Login
-                        </button>
-                    </div>
+            <SidebarNavbar
+                onCountryFilter={handleCountryFilter}
+                currentFilter={countryFilter}
+                onSearchSubmit={handleSearchSubmit}
+                searchTerm={searchTerm}
+                onSearchChange={handleSearchChange} />
+            <div className="flex flex-col flex-1 p-4 md:flex-row sm:ml-64">
+                <main className="flex-1 p-6 space-y-6 rounded-lg mt-14">
+                    <Carousel />
 
-                    {/* Form Pencarian */}
-                    <div className="flex justify-center mb-4">
-                        <form className="flex items-center w-full max-w-lg" onSubmit={handleSearchSubmit}>
-                            <label htmlFor="default-search" className="sr-only">
-                                Search
-                            </label>
-                            <div className="relative w-full">
-                                <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                                    <svg
-                                        className="w-4 h-4 text-gray-400"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            stroke="currentColor"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                                        />
-                                    </svg>
-                                </div>
-                                <input
-                                    type="search"
-                                    id="default-search"
-                                    value={searchTerm}
-                                    onChange={handleSearchChange}
-                                    className="block w-full p-4 pl-10 text-sm text-white bg-gray-800 border border-gray-700 rounded-lg focus:ring-orange-500 focus:border-orange-500"
-                                    placeholder="Search Drama..."
-                                    required
-                                />
-                                <button
-                                    type="submit"
-                                    className="absolute right-2.5 top-1/2 transform -translate-y-1/2 bg-orange-600 hover:bg-orange-700 text-white focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2"
-                                >
-                                    Search
-                                </button>
-                            </div>
-                        </form>
-                    </div>
 
-                    {/* Filter and Sort Options */}
-                    <FilterSortOptions 
-                        onFilterChange={handleFilterChange} 
-                        onSortChange={handleSortChange} 
-                        onSubmit={handleSubmitFilterSort}
-                    />
+                    <FilterSortOptions
+                        onFilterChange={handleFilterChange}
+                        onSortChange={handleSortChange}
+                        onSubmit={handleSubmitFilterSort} />
 
                     {/* Menampilkan keyword pencarian setelah tombol Search diklik */}
                     {searchedTerm && (
@@ -254,8 +193,7 @@ const Home = () => {
                                     views={item.views}
                                     imageUrl={item.coverImage}
                                     status={item.status}
-                                    onClick={() => handleDramaClick(item.id)} 
-                                />
+                                    onClick={() => handleDramaClick(item.id)} />
                             </section>
                         ))
                     ) : searchedTerm ? (
@@ -281,17 +219,15 @@ const Home = () => {
                                     views={movie.views}
                                     imageURL={movie.coverImage}
                                     status={movie.status}
-                                    onClick={() => handleDramaClick(movie.id)}  
-                                />
+                                    onClick={() => handleDramaClick(movie.id)} />
                             ))}
                         </section>
                     )}
                 </main>
             </div>
-            {/* Footer */}
             <Footer />
         </div>
     );
-};
+}
 
-export default Home;
+export default temp;
