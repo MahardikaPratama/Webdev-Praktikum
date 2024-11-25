@@ -4,10 +4,10 @@ const PaginationHome = ({ currentPage, totalEntries, entriesPerPage, onPageChang
     const totalPages = Math.ceil(totalEntries / entriesPerPage); // Menghitung total halaman
 
     const handlePageChange = (newPage) => {
-        if (newPage >= 1 && newPage <= totalPages) {
-            onPageChange(newPage); // Panggil fungsi yang dikirim dari parent
-        }
+        if (newPage < 1 || newPage > totalPages) return; 
+        onPageChange(newPage); 
     };
+    
 
     return (
         <div className="flex flex-col items-center mt-4">

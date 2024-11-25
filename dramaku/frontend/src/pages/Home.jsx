@@ -7,40 +7,42 @@ import FilterSortOptions from "../components/FilterSortOptions";
 import SearchCard from "../components/SearchCard";
 import { useNavigate } from "react-router-dom";
 import "../css/style.css";
-import Footer from "../components/footer";
 import Carousel from "../components/Carousel";
 import MovieDataService from "../services/movie.service";
+import Footer from "../components/Footer";
 
 function Home() {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [searchedTerm, setSearchedTerm] = useState('');
-    const [currentPage, setCurrentPage] = useState(1);
-    const [entriesPerPage] = useState(10);
-    const [filterOptions, setFilterOptions] = useState({
+    const navigate = useNavigate();
+
+    // Load initial state from sessionStorage, or set default values if not present
+    const initialFilterOptions = JSON.parse(sessionStorage.getItem("filterOptions")) || {
         year: '',
         genre_name: '',
         release_status: '',
         platform_name: '',
         award: '',
         country_name: ''
-    });
-    const [sortOption, setSortOption] = useState('');
-    const [countryFilter, setCountryFilter] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    };
+    const initialSortOption = sessionStorage.getItem("sortOption") || '';
+    const initialSearchTerm = sessionStorage.getItem("searchTerm") || '';
 
-    const navigate = useNavigate();
+    const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+    const [searchedTerm, setSearchedTerm] = useState(initialSearchTerm);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [entriesPerPage] = useState(10);
+    const [filterOptions, setFilterOptions] = useState(initialFilterOptions);
+    const [sortOption, setSortOption] = useState(initialSortOption);
+    const [countryFilter, setCountryFilter] = useState(initialFilterOptions.country_name || '');
+    const [searchResults, setSearchResults] = useState([]);
 
     const { data, isLoading, error } = useQuery(
         ['movies', { searchTerm, filterOptions, sortOption, currentPage }],
         async () => {
-            console.log("Fetching movies with:", { searchTerm, filterOptions, sortOption, currentPage });
             if (searchTerm) {
                 const response = await MovieDataService.searchMovies(searchTerm, currentPage, entriesPerPage);
-                console.log("Search response:", response.data);
                 return response.data;
             } else {
                 const response = await MovieDataService.filterSortMovies(filterOptions, sortOption, currentPage, entriesPerPage);
-                console.log("Filter/Sort response:", response);
                 return response.data;
             }
         },
@@ -49,15 +51,8 @@ function Home() {
         }
     );
 
-    const movies = useMemo(() => {
-        console.log("Movies state:", data); 
-        return Array.isArray(data) ? data : (data?.movies || []);
-    }, [data]);
-
-    console.log("Movies:", movies);
-
+    const movies = useMemo(() => Array.isArray(data) ? data : (data?.movies || []), [data]);
     const totalEntries = data?.totalCount || 0;
-    console.log("Total entries:", totalEntries);
 
     useEffect(() => {
         if (searchTerm.trim() === '') {
@@ -74,6 +69,13 @@ function Home() {
             setSearchResults([]);
         }
     }, [searchTerm, movies]);
+
+    // Save filter options and search term to sessionStorage whenever they change
+    useEffect(() => {
+        sessionStorage.setItem("filterOptions", JSON.stringify(filterOptions));
+        sessionStorage.setItem("sortOption", sortOption);
+        sessionStorage.setItem("searchTerm", searchTerm);
+    }, [filterOptions, sortOption, searchTerm]);
 
     const handleSearchChange = (e) => {
         const value = e.target.value;
@@ -102,7 +104,7 @@ function Home() {
     };
 
     const handleDramaClick = (id) => {
-        navigate(`/detail/${id}`);
+        navigate(`/movies/${id}`);
     };
 
     const handleSortChange = (e) => {

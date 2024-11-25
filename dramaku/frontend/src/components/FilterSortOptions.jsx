@@ -10,7 +10,7 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
 
     // Fetch genres using React Query
     const {
-        data: genres,
+        data: genres = [],
         isLoading: genresLoading,
         isError: genresError,
     } = useQuery("genres", async () => {
@@ -20,7 +20,7 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
 
     // Fetch awards using React Query
     const {
-        data: awards,
+        data: awards = [],
         isLoading: awardsLoading,
         isError: awardsError,
     } = useQuery("awards", async () => {
@@ -30,7 +30,7 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
 
     // Fetch platforms using React Query
     const {
-        data: platforms,
+        data: platforms = [],
         isLoading: platformsLoading,
         isError: platformsError,
     } = useQuery("platforms", async () => {
@@ -39,7 +39,7 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
     });
 
     const handleFilterButtonClick = () => {
-        setIsFilterVisible(!isFilterVisible);
+        setIsFilterVisible((prev) => !prev);
     };
 
     const handleClearFilterButtonClick = () => {
@@ -53,12 +53,12 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
 
     const filterOptions = {
         sort: [
-            { value: "title-asc", label: "Alphabetical (A-Z)" },
-            { value: "title-desc", label: "Alphabetical (Z-A)" },
-            { value: "rating-asc", label: "Rating (Low to High)" },
-            { value: "rating-desc", label: "Rating (High to Low)" },
-            { value: "year-asc", label: "Year (Old to New)" },
-            { value: "year-desc", label: "Year (New to Old)" },
+            { value: "title-asc", label: "A-Z" },
+            { value: "title-desc", label: "Z-A" },
+            { value: "rating-asc", label: "Rating ↑" },
+            { value: "rating-desc", label: "Rating ↓" },
+            { value: "year-asc", label: "Year ↑" },
+            { value: "year-desc", label: "Year ↓" },
         ],
     };
 
@@ -73,9 +73,7 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
             {/* Filter and Sort Buttons */}
             <button
                 id="filter-button"
-                className={`p-2 text-gray-400 md:hidden focus:outline-none ${
-                    isFilterVisible ? "hidden" : ""
-                }`}
+                className={`p-2 text-gray-400 md:hidden focus:outline-none ${isFilterVisible ? "hidden" : ""}`}
                 onClick={handleFilterButtonClick}
             >
                 <i className="text-2xl fas fa-filter"></i>
@@ -83,9 +81,7 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
 
             <button
                 id="clear-filter-button"
-                className={`relative p-2 text-gray-400 focus:outline-none ${
-                    isFilterVisible ? "" : "hidden"
-                }`}
+                className={`relative p-2 text-gray-400 focus:outline-none ${isFilterVisible ? "" : "hidden"}`}
                 onClick={handleClearFilterButtonClick}
             >
                 <i className="text-2xl fas fa-filter"></i>
@@ -96,16 +92,10 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
             </button>
 
             {/* Filter and Sort Options */}
-            <div
-                className={`flex-col mb-4 space-y-4 filter-content md:flex lg:space-y-0 lg:flex-row lg:space-x-4 ${
-                    isFilterVisible ? "" : "hidden"
-                }`}
-            >
+            <div className={`flex-col mb-4 space-y-4 filter-content md:flex lg:space-y-0 lg:flex-row lg:space-x-4 ${isFilterVisible ? "" : "hidden"}`}>
                 {/* Filter Options */}
                 <div className="flex flex-col w-full space-y-2 lg:flex-row lg:items-center lg:space-x-2 lg:w-auto">
-                    <span className="w-full text-gray-300 lg:w-auto">
-                        Filtered by:
-                    </span>
+                    <span className="w-full text-gray-300 lg:w-auto">Filtered by:</span>
                     <div className="grid w-full grid-cols-2 gap-2 lg:flex lg:space-x-2">
                         {/* Dropdown Year */}
                         <DropdownSearch
@@ -118,7 +108,7 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
                         {/* Dropdown Genre */}
                         <DropdownSearch
                             label="Genre"
-                            options={genres.map((genre) => genre.genre_name)}
+                            options={genres.data.map((genre) => genre.genre_name)}
                             onChange={onFilterChange}
                             name="genre_name"
                             className="w-full lg:w-auto"
@@ -134,9 +124,7 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
                         {/* Dropdown Availability */}
                         <DropdownSearch
                             label="Availability"
-                            options={platforms.map(
-                                (platform) => platform.platform_name
-                            )}
+                            options={platforms.map((platform) => platform.platform_name)}
                             onChange={onFilterChange}
                             name="platform_name"
                             className="w-full lg:w-auto"
@@ -157,9 +145,7 @@ const FilterSortOptions = ({ onFilterChange, onSortChange }) => {
                     <span className="text-gray-300">Sorted by:</span>
                     <DropdownSearch
                         label="Sort"
-                        options={filterOptions.sort.map(
-                            (option) => option.label
-                        )}
+                        options={filterOptions.sort.map((option) => option.label)}
                         onChange={onSortChange}
                         name="sort"
                         className="w-full lg:w-auto"

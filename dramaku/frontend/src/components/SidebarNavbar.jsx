@@ -11,6 +11,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
     const [userRole, setUserRole] = useState('');
     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
+    const [previewImage, setPreviewImage] = useState(null);
     const [showSearchResults, setShowSearchResults] = useState(true);
     const [isLoggedIn, setIsLoggedIn] = useState(false); // State untuk status login
     const searchResultsRef = useRef(null);
@@ -18,6 +19,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
 
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
+    const DefaultPreviewImage = "https://divedigital.id/wp-content/uploads/2021/10/1-min.png";
 
     const {
         data: countries,
@@ -39,6 +41,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
                 setUserName(response.data.username);
                 setUserEmail(response.data.email);
                 setUserRole(response.data.role);
+                setPreviewImage(response.data.foto_profil_url);
                 setIsLoggedIn(true); // Set status login menjadi true jika data pengguna berhasil diambil
             }
         } catch (error) {
@@ -139,7 +142,11 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
                                 {showSearchResults && searchResults.length > 0 && (
                                     <ul ref={searchResultsRef} className="absolute z-10 w-full overflow-y-auto bg-gray-800 border border-gray-600 rounded-lg max-h-60">
                                         {searchResults.slice(0, 5).map((result) => (
-                                            <li key={result.id} className="flex items-center p-2 cursor-pointer hover:bg-gray-700">
+                                            <li 
+                                                key={result.id} 
+                                                className="flex items-center p-2 cursor-pointer hover:bg-gray-700"
+                                                onClick={() => navigate(`/movies/${result.movie_id}`)}
+                                            >
                                                 <img src={result.poster_url} alt={result.title} className="w-12 h-16 mr-2 rounded" />
                                                 <span className="text-white">{result.title}</span>
                                             </li>
@@ -168,7 +175,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
                                 <span className="sr-only">Open user menu</span>
                                 <img
                                     className="w-8 h-8 rounded-full"
-                                    src="https://divedigital.id/wp-content/uploads/2021/10/1-min.png"
+                                    src={previewImage ? previewImage : DefaultPreviewImage}
                                     alt="User"
                                 />
                             </button>
@@ -256,7 +263,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
                                 All Dramas
                             </button>
                         </li>
-                        {countries && countries.length > 0 && countries.map((country) => (
+                        {countries.data && countries.totalEntries > 0 && countries.data.map((country) => (
                             <CountryButton
                                 key={country.country_name}
                                 country={country.country_name}

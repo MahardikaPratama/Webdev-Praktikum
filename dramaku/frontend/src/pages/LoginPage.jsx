@@ -1,28 +1,31 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import userDataService from '../services/user.service';
 
 const LoginPage = () => {
     const navigate = useNavigate();
-
+    
     // State untuk mengatur visibilitas password dan pesan error
     const [showPassword, setShowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    
+
+    // Toggle password visibility
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
     const handleLogin = async () => {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
         try {
+            // Call the login service
             const response = await userDataService.login({ email, password });
             console.log(response.data);
             navigate('/'); // Redirect ke halaman utama setelah login berhasil
         } catch (error) {
-            // Menangani berbagai jenis error login dan menampilkan pesan yang sesuai
+            // Handling different types of errors
             if (error.response && error.response.status === 401) {
                 setErrorMessage('Invalid email or password.');
             } else if (error.response && error.response.status === 400) {
@@ -44,7 +47,7 @@ const LoginPage = () => {
                 <div className="w-full p-6 md:w-1/2 md:px-8 lg:px-12">
                     <h2 className="mb-4 text-xl font-bold text-center text-white">Login</h2>
                     
-                    {/* Menampilkan pesan error jika ada */}
+                    {/* Display error message if any */}
                     {errorMessage && (
                         <div className="mb-4 text-sm text-center text-red-500">
                             {errorMessage}

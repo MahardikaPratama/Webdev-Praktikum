@@ -3,11 +3,17 @@ const bcrypt = require('bcrypt');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 
+
 // Mendapatkan semua user
 exports.getAll = async (req, res) => {
     try {
-        const users = await User.getAll();
-        res.status(200).json(users);
+        const { page = 1, limit = 10 } = req.query;
+        const { users, totalEntries } = await User.getAll(page, limit);
+        res.json({
+            users,
+            totalEntries
+        });
+
     } catch (error) {
         res.status(500).json({ message: "Error fetching users", error });
     }
@@ -38,6 +44,23 @@ exports.getByEmail = async (req, res) => {
     }
 };
 
+// Mencari user berdasarkan username
+exports.searchUserByUsername = async (req, res) => {
+    try {
+        const { username = '', page = 1, limit = 10 } = req.query;
+        const { users, totalEntries } = await User.searchUserByUsername(username, page, limit);
+        if (users.length === 0) {
+            return res.status(404).json({ message: "No results found" });
+        }
+
+        res.json({
+            users,
+            totalEntries
+        })
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
 
 // Membuat user baru
 exports.create = async (req, res) => {
@@ -64,6 +87,49 @@ exports.update = async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ message: "Error updating user", error });
+    }
+};
+
+exports.updateProfile = async (req, res) => {
+    try {
+        
+        const foto_profil_url = req.file ? req.file.path : null;
+        const updatedUser = await User.updateProfile(req.params.id, { 
+            username: req.body.username, 
+            foto_profil_url: foto_profil_url
+        });
+        res.json(updatedUser);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
+
+
+// Mengupdate role user
+exports.updateRole = async (req, res) => {
+    try {
+        const updatedUser = await User.updateRole(req.params.id, req.body.role);
+        if (updatedUser) {
+            res.status(200).json(updatedUser);
+        } else {
+            res.status(404).json({ message: "User not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error updating user role", error });
+    }
+};
+
+// Mengupdate status suspend user
+exports.updateStatusSuspend = async (req, res) => {
+    try {
+        const updatedUser = await User.updateStatusSuspend(req.params.id, req.body.is_suspended);
+        if (updatedUser) {
+            res.status(200).json(updatedUser);
+        } else {
+            res.status(404).json({ message: "User not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error updating user status", error });
     }
 };
 
@@ -115,11 +181,14 @@ exports.login = async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
+        if (user.is_suspended) {
+            return res.status(403).json({ message: "User is suspended" });
+        }
         if (await bcrypt.compare(password, user.password)) {
             const token = jwt.sign(
                 { user_id: user.user_id, email: user.email, role: user.role },
                 process.env.JWT_SECRET,
-                { expiresIn: '1h' } // Token kadaluarsa setelah 1 jam
+                { expiresIn: '1d' } // Token kadaluarsa setelah 1 hari
             );
 
             // Simpan token di HTTP-only cookie
@@ -127,7 +196,7 @@ exports.login = async (req, res) => {
                 httpOnly: true,  // Tidak dapat diakses dari JavaScript
                 secure: false,
                 sameSite: 'Strict', // Mencegah serangan CSRF
-                maxAge: 3600000, // Token berlaku selama 1 jam
+                maxAge: 86400000, // Token berlaku selama 1 jam
             });
 
             return res.status(200).json({ message: "Login successful" });
@@ -172,7 +241,9 @@ exports.getProfile = async (req, res) => {
             user_id: user.user_id,
             username: user.username,
             email: user.email,
-            role: user.role
+            password: user.password,
+            role: user.role,
+            foto_profil_url: user.foto_profil_url,
         });
 
     } catch (error) {
@@ -183,5 +254,14 @@ exports.getProfile = async (req, res) => {
 
         console.error("Error fetching profile:", error);
         return res.status(500).json({ message: "Error fetching profile", error });
+    }
+};
+
+exports.getTotalUsers = async (req, res) => {
+    try {
+        const totalUsers = await Award.getTotalUsers();
+        res.json(totalUsers);
+    } catch (error) {
+        res.status(500).send(error.message);
     }
 };

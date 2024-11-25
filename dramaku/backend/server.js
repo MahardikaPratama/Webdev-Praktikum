@@ -12,7 +12,6 @@ const commentRoutes = require("./app/routes/commentRoutes");
 const countryRoutes = require("./app/routes/countryRoutes");
 const genreRoutes = require("./app/routes/genreRoutes");
 const platformRoutes = require("./app/routes/platformRoutes");
-const cmsRoutes = require("./app/routes/cmsRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -46,7 +45,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/awards", awardRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/platforms", platformRoutes);
-app.use("/api/cms", cmsRoutes);
 
 // Google Auth Routes
 app.get(
@@ -86,3 +84,4 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+

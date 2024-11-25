@@ -98,19 +98,47 @@ const RegisterPage = () => {
                     password: formData.password,
                 });
                 console.log(response);
-                navigate('/login');
+    
+                // Store email in localStorage to pass to EmailVerification component
+                localStorage.setItem('email', formData.email);
+    
+                navigate('/email-verification');
             } catch (error) {
                 if (error.response?.status === 400 && error.response.data?.message) {
-                    // Handling error jika username atau email sudah ada
                     setErrorMessage(error.response.data.message);
                 } else {
                     setErrorMessage('Registration failed. Please try again.');
                 }
-                localStorage.removeItem('token'); // Bersihkan token jika gagal
                 setSuccessMessage('');
             }
         }
     };
+    
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    
+    //     if (validateForm()) {
+    //         try {
+    //             const response = await userDataService.register({
+    //                 username: formData.username,
+    //                 email: formData.email,
+    //                 password: formData.password,
+    //             });
+    //             console.log(response);
+    //             navigate('/email-verification');
+    //         } catch (error) {
+    //             if (error.response?.status === 400 && error.response.data?.message) {
+    //                 // Handling error jika username atau email sudah ada
+    //                 setErrorMessage(error.response.data.message);
+    //             } else {
+    //                 setErrorMessage('Registration failed. Please try again.');
+    //             }
+    //             localStorage.removeItem('token'); // Bersihkan token jika gagal
+    //             setSuccessMessage('');
+    //         }
+    //     }
+    // };
     
     const renderValidationIcon = (isValid) => {
         return isValid ? (
@@ -275,4 +303,3 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
-

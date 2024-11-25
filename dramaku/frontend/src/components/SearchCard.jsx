@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { FaHeart } from "react-icons/fa";
+import React from "react";
 
-const SearchCard = ({ title, year, genres, rating, views, imageUrl, status }) => {
-    const [isWishlisted, setIsWishlisted] = useState(false); // State untuk status wishlist
+const SearchCard = ({ title, year, genres, rating, views, imageUrl, status, onClick }) => {
 
     // Fungsi untuk memformat jumlah views
     const formatViews = (views) => {
@@ -29,14 +27,11 @@ const SearchCard = ({ title, year, genres, rating, views, imageUrl, status }) =>
         }
     })();
 
-    // Handle klik wishlist
-    const handleWishlistClick = (e) => {
-        e.stopPropagation(); // Mencegah klik mengaktifkan aksi utama pada card
-        setIsWishlisted(!isWishlisted); // Toggle status wishlist
-    };
-
     return (
-        <div className="relative flex flex-col items-center p-4 space-y-4 transition-transform transform bg-gray-800 rounded-lg shadow-lg cursor-pointer sm:flex-row sm:space-y-0 sm:space-x-4 hover:scale-105 hover:bg-gray-700 hover:shadow-lg">
+        <div 
+            className="relative flex flex-col items-center p-4 space-y-4 transition-transform transform bg-gray-800 rounded-lg shadow-lg cursor-pointer sm:flex-row sm:space-y-0 sm:space-x-4 hover:scale-105 hover:bg-gray-700 hover:shadow-lg"
+            onClick={onClick}    
+        >
             {/* Gambar Poster dengan tombol wishlist di dalamnya */}
             <div className="relative">
                 <img
@@ -45,14 +40,6 @@ const SearchCard = ({ title, year, genres, rating, views, imageUrl, status }) =>
                     className="object-contain w-full mb-2 rounded-md sm:w-28 h-36 sm:mb-0"
                     loading="lazy"
                 />
-                {/* Tombol Wishlist di sudut kanan bawah gambar */}
-                <button
-                    className={`absolute bottom-2 right-3 p-1 transition-colors duration-300 rounded-full border-2 bg-gray-800 bg-opacity-70 ${isWishlisted ? 'border-red-500 bg-red-500 text-white' : 'border-gray-400 text-gray-400 hover:border-red-500 hover:text-red-500'}`}
-                    onClick={handleWishlistClick}
-                    title="Add to Wishlist"
-                >
-                    <FaHeart className={`text-md ${isWishlisted ? 'text-white' : 'text-gray-400'}`} />
-                </button>
             </div>
             
             {/* Informasi Film */}
@@ -61,7 +48,7 @@ const SearchCard = ({ title, year, genres, rating, views, imageUrl, status }) =>
                 <p className="mb-1 text-sm text-gray-400">{year}</p>
                 <p className="mb-1 text-sm text-gray-400 line-clamp-1">{genres}</p>
                 <div className="flex items-center justify-between">
-                    <p className="text-sm text-gray-400">Rating: {rating}/10</p>
+                    <p className="text-sm text-gray-400">Rating: {rating}/5.0</p>
                     <p className="text-sm text-gray-500">{formatViews(views)} views</p>
                 </div>
             </div>
