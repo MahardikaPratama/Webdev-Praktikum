@@ -1,0 +1,33 @@
+{
+    "builds": [
+      {
+        "src": "./Dockerfile-client",
+        "use": "nixpacks",
+        "env": {
+          "PORT": "3000"
+        }
+      },
+      {
+        "src": "./Dockerfile-server",
+        "use": "nixpacks",
+        "env": {
+          "PORT": "8080"
+        }
+      },
+      {
+        "src": "./Dockerfile-python",
+        "use": "nixpacks",
+        "env": {
+          "PORT": "5432"
+        }
+      },
+      {
+        "src": "./Dockerfile-nginx",
+        "use": "nixpacks",
+        "env": {
+          "PORT": "80"
+        }
+      }
+    ]
+  }
+  
