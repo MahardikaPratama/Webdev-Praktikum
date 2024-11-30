@@ -1,13 +1,16 @@
 FROM node:18-alpine
 
+# Tentukan direktori kerja di dalam container
 WORKDIR /app
 
+# Salin hanya package.json dan package-lock.json terlebih dahulu
 COPY ./client/package*.json ./
 
+# Install dependensi
 RUN npm install
 
+# Salin seluruh kode aplikasi ke dalam container
 COPY ./client .
 
-CMD ["npm", "run", "start"]
-
-
+# Jalankan aplikasi
+CMD ["npm", "start"]
