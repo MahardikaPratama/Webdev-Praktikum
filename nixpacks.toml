@@ -1,0 +1,2 @@
+[phases]
+setup = "python3, postgresql, gcc, nodejs-18_x"
