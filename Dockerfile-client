@@ -1,25 +1,13 @@
-# Tahap build aplikasi React
-FROM node:18-alpine AS build
+FROM node:18-alpine
 
 WORKDIR /app
 
-# Salin file package.json dan install dependencies
 COPY ./client/package*.json ./
 
 RUN npm install
 
-# Salin seluruh source code dan build aplikasi
-COPY ./client ./
-RUN npm run build
+COPY ./client .
 
-# Tahap serve file React menggunakan Nginx
-FROM nginx:alpine
+CMD ["npm", "run", "start"]
 
-# Copy hasil build ke direktori default Nginx
-COPY --from=build /app/build /usr/share/nginx/html
 
-# Ekspos port 80 untuk melayani file statis
-EXPOSE 80
-
-# Jalankan Nginx
-CMD ["nginx", "-g", "daemon off;"]

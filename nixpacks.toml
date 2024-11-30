@@ -1,2 +1,0 @@
-[phases.setup]
-runtime = ["python3", "postgresql", "gcc", "nodejs-18_x"]

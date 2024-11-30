@@ -2,17 +2,10 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Salin file package.json dan package-lock.json
 COPY ./server/package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Salin seluruh source code ke container
-COPY ./server ./
+COPY ./server .
 
-# Ekspos port yang digunakan oleh server
-EXPOSE 8080
-
-# Jalankan server
 CMD ["npm", "start"]
