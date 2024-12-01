@@ -2,6 +2,24 @@
   <img height="150" src="https://res.cloudinary.com/dnw6u159c/image/upload/v1732899238/tksjaqibiihmty918wwm.png"  />
 </div>
 
+### Architecture Overview
+
+#### Local Project Architecture
+<div align="center">
+  <img src="https://www.tutofox.com/wp-content/uploads/2023/05/Copia-de-Azul-y-Purpura-Casual-Vision-Corporativa-Diapositivas-Presentacion-Empresarial-16-1024x576.png" width="600" alt="Local Project Architecture" />
+</div>
+
+#### Docker Project Architecture
+<div align="center">
+  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046880/ywgxqr65jufsueqstjet.png" width="600" alt="Docker Project Architecture" />
+</div>
+
+#### Database Schema
+<div align="center">
+  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046734/ykhqgh3gozd62j3vzqiu.svg" width="600" alt="Database Schema" />
+</div>
+
+###
 ###
 
 <div align="center">
@@ -41,11 +59,11 @@
 <p>All data is sourced from <a href="https://www.themoviedb.org/">The Movie Database (TMDb)</a>, providing up-to-date information on <strong>1000+ dramas, 2000+ actors, and thousands of user reviews and comments</strong>. DramaKu allows users to:  
 </p>  
 <ul>
-  <li>Main Page: displays popular dramas, search functionality, and filters by genre or country.</li>
+  <li>Main Page: displays all dramas, search functionality, and filters functionality.</li>
   <li>Drama Details: provides complete information about a drama, including synopsis, ratings, cast, and reviews.</li>
   <li>Search and Filter: search dramas by title, genre, or release year, with filter options for recommendations.</li>
   <li>CMS for multiple entities: manage data for dramas, actors, countries, genres, comments, awards, and users.</li>
-  <li>User Features: registration, login (including Google/social login), drama wishlist, and profile management.</li>
+  <li>User Features: registration, login (including Google), drama wishlist, and profile management.</li>
   <li>Validation: validate dramas, reviews, and block users who violate platform policies.</li>
   <li>CRUD: create, read, update, and delete data for dramas, actors, awards, genres, reviews, and countries.</li>
   <li>Additional Features: wishlist/bookmark dramas, reset password, and email confirmation during registration.</li>
@@ -146,6 +164,13 @@
   </p>
 </div>
 
+
+<h1 align="center">📈 Project Stats 📈</h1>
+<div align="center">
+  <img src="https://img.shields.io/github/commit-activity/m/MahardikaPratama/Webdev-Praktikum?color=blue" alt="Commit Activity" />
+  <img src="https://img.shields.io/github/last-commit/MahardikaPratama/Webdev-Praktikum?color=yellow" alt="Last Commit" />
+  <img src="https://img.shields.io/github/license/MahardikaPratama/Webdev-Praktikum?color=orange" alt="License" />
+</div>
 
 <h1 style="text-align: center; color: #4CAF50;">Setup</h1>
 <p style="font-size: 18px;">Follow the steps below to set up the application:</p>
