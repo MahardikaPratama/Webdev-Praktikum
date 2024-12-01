@@ -2,27 +2,6 @@
   <img height="150" src="https://res.cloudinary.com/dnw6u159c/image/upload/v1732899238/tksjaqibiihmty918wwm.png" alt="Header Image"/>
 </div>
 
-### Architecture Overview
-
-#### Local Project Architecture
-<div class="zoom-container" align="center">
-  <img src="https://www.tutofox.com/wp-content/uploads/2023/05/Copia-de-Azul-y-Purpura-Casual-Vision-Corporativa-Diapositivas-Presentacion-Empresarial-16-1024x576.png" width="80%" alt="Local Project Architecture" />
-</div>
-
-#### Docker Project Architecture
-<div class="zoom-container" align="center">
-  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046880/ywgxqr65jufsueqstjet.png" width="80%" alt="Docker Project Architecture" />
-</div>
-
-#### Database Schema
-<div class="zoom-container" align="center">
-  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046734/ykhqgh3gozd62j3vzqiu.svg" width="80%" alt="Database Schema" />
-</div>
-
-
-###
-###
-
 <div align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" height="40" alt="tailwind logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
@@ -237,15 +216,3 @@ DOCKER_start.bat</code></pre>
   <img src="https://www.polban.ac.id/wp-content/uploads/2021/11/MASTER-LOGO-POLBAN-SMALL-1.png" height="100" alt="Polban Logo" />
 </div>
 
-<style>
-  /* Container for zooming */
-  .zoom-container img {
-    cursor: pointer;
-    transition: transform 0.25s ease;
-  }
-
-  /* Zoom effect on click */
-  .zoom-container img:hover {
-    transform: scale(1.2);
-  }
-</style>
