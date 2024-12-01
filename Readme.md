@@ -30,16 +30,6 @@
   <img src="https://img.shields.io/github/languages/top/MahardikaPratama/Webdev-Praktikum?color=purple" alt="Top Language" />
   <img src="https://img.shields.io/github/languages/count/MahardikaPratama/Webdev-Praktikum?color=pink" alt="Languages Count" />
   <br>
-  
-  <!-- Additional Badges for Issues, Pull Requests, and Release -->
-  <img src="https://img.shields.io/github/issues/MahardikaPratama/Webdev-Praktikum?color=lightgrey" alt="Open Issues" />
-  <img src="https://img.shields.io/github/issues-pr/MahardikaPratama/Webdev-Praktikum?color=blue" alt="Open Pull Requests" />
-  <img src="https://img.shields.io/github/release/MahardikaPratama/Webdev-Praktikum?color=purple" alt="Latest Release" />
-  <br>
-  
-  <!-- Badges for Build Status and Test Coverage -->
-  <img src="https://img.shields.io/github/workflow/status/MahardikaPratama/Webdev-Praktikum/CI?label=Build%20Status&color=brightgreen" alt="Build Status" />
-  <img src="https://img.shields.io/codecov/c/github/MahardikaPratama/Webdev-Praktikum?color=blue" alt="Test Coverage" />
 </div>
 
 
