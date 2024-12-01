@@ -29,6 +29,7 @@
   <!-- Badges for programming languages -->
   <img src="https://img.shields.io/github/languages/top/MahardikaPratama/Webdev-Praktikum?color=purple" alt="Top Language" />
   <img src="https://img.shields.io/github/languages/count/MahardikaPratama/Webdev-Praktikum?color=pink" alt="Languages Count" />
+  <br>
 </div>
 
 
