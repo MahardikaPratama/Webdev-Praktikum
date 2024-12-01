@@ -146,7 +146,12 @@ try:
             foto_profil_url TEXT,
             created_at TIMESTAMP,
             updated_at TIMESTAMP,
-            is_suspended BOOLEAN DEFAULT FALSE
+            is_suspended BOOLEAN DEFAULT FALSE,
+            is_verified BOOLEAN DEFAULT FALSE,
+            verification_token VARCHAR(5),
+            verification_token_expiration TIMESTAMP,
+            reset_password_token VARCHAR(5),
+            reset_token_expiration TIMESTAMP
         );
         """,
         "movies": """
@@ -318,8 +323,8 @@ try:
                 cursor.execute("INSERT INTO platforms (platform_id, platform_name, created_at, updated_at) VALUES (%s, %s, %s, %s)",
                                (row['platform_id'], row['platform_name'], row['created_at'], row['updated_at']))
             elif sheet == 'users':
-                cursor.execute("INSERT INTO users (user_id, username, email, password, role, foto_profil_url, created_at, updated_at, is_suspended) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                               (row['user_id'], row['username'], row['email'], row['password'], row['role'], row['foto_profil_url'], row['created_at'], row['updated_at'], row['is_suspended']))
+                cursor.execute("INSERT INTO users (user_id, username, email, password, role, foto_profil_url, created_at, updated_at, is_suspended, is_verified, verification_token, verification_token_expiration, reset_password_token, reset_token_expiration) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                               (row['user_id'], row['username'], row['email'], row['password'], row['role'], row['foto_profil_url'], row['created_at'], row['updated_at'], row['is_suspended'], row['is_verified'], row['verification_token'], row['verification_token_expiration'], row['reset_password_token'], row['reset_token_expiration']))
             elif sheet == 'movies':
                 cursor.execute("INSERT INTO movies (movie_id, poster_url, title, alternative_title, movie_rate, views, year, synopsis, release_status, approval_status, link_trailer, country_id, user_id, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                                (row['movie_id'], row['poster_url'], row['title'], row['alternative_title'], row['movie_rate'], row['views'], row['year'], row['synopsis'], row['release_status'], row['approval_status'], row['link_trailer'], row['country_id'], row['user_id'], row['created_at'], row['updated_at']))

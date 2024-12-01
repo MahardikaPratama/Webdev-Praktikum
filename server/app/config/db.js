@@ -20,13 +20,22 @@ if (process.env.NODE_ENV !== 'test') {
     console.log('DB_NAME:', process.env.DB_NAME);
 
     pool.connect()
-        .then(client => {
-            console.log('Connected to the database successfully');
-            client.release();
-        })
-        .catch(err => {
-            console.error('Database connection error', err.stack);
-        });
+    .then(client => {
+        console.log('Connected to the database successfully');
+        // Set timezone for this session
+        return client.query("SET timezone = 'Asia/Jakarta';")
+            .then(() => {
+                client.release();
+                console.log('Timezone has been set to Asia/Jakarta');
+            })
+            .catch(err => {
+                client.release();
+                console.error('Error setting timezone:', err.stack);
+            });
+    })
+    .catch(err => {
+        console.error('Database connection error:', err.stack);
+    });
 }
 
 module.exports = pool;
