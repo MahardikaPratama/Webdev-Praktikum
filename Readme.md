@@ -2,6 +2,9 @@
   <img height="150" src="https://res.cloudinary.com/dnw6u159c/image/upload/v1732899238/tksjaqibiihmty918wwm.png" alt="Header Image"/>
 </div>
 
+###
+###
+
 <div align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" height="40" alt="tailwind logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
@@ -11,23 +14,21 @@
 </div>
 
 ###
+### Architecture Overview
 
+#### Local Project Architecture
 <div align="center">
-  <!-- Badges for contributors, commit activity, and last commit -->
-  <img src="https://img.shields.io/github/contributors/MahardikaPratama/Webdev-Praktikum?color=red" alt="Contributors" />
-  <img src="https://img.shields.io/github/commit-activity/m/MahardikaPratama/Webdev-Praktikum?color=blue" alt="Commit Activity" />
-  <img src="https://img.shields.io/github/last-commit/MahardikaPratama/Webdev-Praktikum?color=yellow" alt="Last Commit" />
-  <br>
-  
-  <!-- Badges for repository size and license -->
-  <img src="https://img.shields.io/github/repo-size/MahardikaPratama/Webdev-Praktikum?color=green" alt="Repository Size" />
-  <img src="https://img.shields.io/github/license/MahardikaPratama/Webdev-Praktikum?color=orange" alt="License" />
-  <br>
-  
-  <!-- Badges for programming languages -->
-  <img src="https://img.shields.io/github/languages/top/MahardikaPratama/Webdev-Praktikum?color=purple" alt="Top Language" />
-  <img src="https://img.shields.io/github/languages/count/MahardikaPratama/Webdev-Praktikum?color=pink" alt="Languages Count" />
-  <br>
+  <img src="https://www.tutofox.com/wp-content/uploads/2023/05/Copia-de-Azul-y-Purpura-Casual-Vision-Corporativa-Diapositivas-Presentacion-Empresarial-16-1024x576.png" width="80%" alt="Local Project Architecture" />
+</div>
+
+#### Docker Project Architecture
+<div align="center">
+  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046880/ywgxqr65jufsueqstjet.png" width="80%" alt="Docker Project Architecture" />
+</div>
+
+#### Database Schema
+<div align="center">
+  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046734/ykhqgh3gozd62j3vzqiu.svg" width="80%" alt="Database Schema" />
 </div>
 
 
@@ -147,6 +148,7 @@
 
 <h1 align="center">📈 Project Stats 📈</h1>
 <div align="center">
+  <img src="https://img.shields.io/github/contributors/MahardikaPratama/Webdev-Praktikum?color=red" alt="Contributors" />
   <img src="https://img.shields.io/github/commit-activity/m/MahardikaPratama/Webdev-Praktikum?color=blue" alt="Commit Activity" />
   <img src="https://img.shields.io/github/last-commit/MahardikaPratama/Webdev-Praktikum?color=yellow" alt="Last Commit" />
   <img src="https://img.shields.io/github/license/MahardikaPratama/Webdev-Praktikum?color=orange" alt="License" />
@@ -215,4 +217,3 @@ DOCKER_start.bat</code></pre>
 <div align="center">
   <img src="https://www.polban.ac.id/wp-content/uploads/2021/11/MASTER-LOGO-POLBAN-SMALL-1.png" height="100" alt="Polban Logo" />
 </div>
-
