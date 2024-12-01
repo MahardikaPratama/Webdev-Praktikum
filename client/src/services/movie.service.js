@@ -36,7 +36,6 @@ class MovieDataService {
             page,
             limit
         };
-        console.log("Filter-Sort Params:", params);
         return http.get(`/movies/filter-sort`, { params });
     }
 

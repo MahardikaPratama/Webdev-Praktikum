@@ -77,6 +77,8 @@ services:
     depends_on:
       server:
         condition: service_started
+    environment:
+      REACT_APP_DOMAIN_SERVER: http://localhost:8080
 
   nginx:
     image: nginx:latest

@@ -161,6 +161,8 @@
   <li><strong>Clone the repository and install the dependencies:</strong>
     <pre><code>git clone https://github.com/MahardikaPratama/Webdev-Praktikum.git</code></pre>
   </li>
+  <li><strong>Copy the <code>.env.example</code> file inside the <b>client folder</b> and rename it to <code>.env</code>.</strong></li>
+  <li><strong>Fill in the <code>.env</code> file inside <b>client</b> folder with your own configuration.</strong></li>
   <li><strong>Copy the <code>.env.example</code> file inside the <b>server folder</b> and rename it to <code>.env</code>.</strong></li>
   <li><strong>Fill in the <code>.env</code> file inside <b>server</b> folder with your own configuration.</strong></li>
   <li><strong>Copy the <code>.env.example</code> file inside the <b>database folder</b> and rename it to <code>.env</code>.</strong></li>
