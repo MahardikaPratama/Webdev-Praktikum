@@ -1,23 +1,24 @@
 <div align="center">
-  <img height="150" src="https://res.cloudinary.com/dnw6u159c/image/upload/v1732899238/tksjaqibiihmty918wwm.png"  />
+  <img height="150" src="https://res.cloudinary.com/dnw6u159c/image/upload/v1732899238/tksjaqibiihmty918wwm.png" alt="Header Image"/>
 </div>
 
 ### Architecture Overview
 
 #### Local Project Architecture
 <div align="center">
-  <img src="https://www.tutofox.com/wp-content/uploads/2023/05/Copia-de-Azul-y-Purpura-Casual-Vision-Corporativa-Diapositivas-Presentacion-Empresarial-16-1024x576.png" width="600" alt="Local Project Architecture" />
+  <img src="https://www.tutofox.com/wp-content/uploads/2023/05/Copia-de-Azul-y-Purpura-Casual-Vision-Corporativa-Diapositivas-Presentacion-Empresarial-16-1024x576.png" width="80%" alt="Local Project Architecture" />
 </div>
 
 #### Docker Project Architecture
 <div align="center">
-  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046880/ywgxqr65jufsueqstjet.png" width="600" alt="Docker Project Architecture" />
+  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046880/ywgxqr65jufsueqstjet.png" width="80%" alt="Docker Project Architecture" />
 </div>
 
 #### Database Schema
 <div align="center">
-  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046734/ykhqgh3gozd62j3vzqiu.svg" width="600" alt="Database Schema" />
+  <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046734/ykhqgh3gozd62j3vzqiu.svg" width="80%" alt="Database Schema" />
 </div>
+
 
 ###
 ###
