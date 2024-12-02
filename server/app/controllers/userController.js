@@ -5,6 +5,15 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
+let secure = false;
+let sameSite = "Strict";
+
+if (process.env.NODE_ENV === "production") {
+    secure = true;
+    sameSite = "None";
+    console.log("Production mode");
+}
+
 // Konfigurasi transporter email
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -235,6 +244,7 @@ exports.handleResendVerification = async (req, res) => {
     }
 };
 
+
 // Login user
 exports.login = async (req, res) => {
     const { email, password } = req.body;
@@ -256,8 +266,8 @@ exports.login = async (req, res) => {
             // Simpan token di HTTP-only cookie
             res.cookie('token', token, {
                 httpOnly: true,  // Tidak dapat diakses dari JavaScript
-                secure: false,
-                sameSite: 'Strict', // Mencegah serangan CSRF
+                secure: secure,
+                sameSite: sameSite, // Mencegah serangan CSRF
                 maxAge: 86400000, // Token berlaku selama 1 jam
             });
 
@@ -351,8 +361,8 @@ exports.updateVerificationResetToken = async (req, res) => {
 exports.logout = (req, res) => {
     res.cookie('token', '', {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'Strict',
+        secure: secure,
+        sameSite: sameSite,
         expires: new Date(0), // Kadaluarsa langsung
     });
     return res.status(200).json({ message: "Logged out successfully" });

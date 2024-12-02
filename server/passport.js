@@ -1,13 +1,13 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("./app/models/user"); 
-
+const ServerURL = `${process.env.SERVER_URL}/auth/google/callback`;
 passport.use(
     new GoogleStrategy(
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: "http://localhost:8080/auth/google/callback",
+            callbackURL: ServerURL,
             scope: ["profile", "email"],
         },
         async (accessToken, refreshToken, profile, done) => {

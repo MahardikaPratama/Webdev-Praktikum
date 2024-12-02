@@ -35,9 +35,9 @@ const LoginPage = () => {
             }
         }
     };
-
+    const baseUrl = `${process.env.REACT_APP_DOMAIN_SERVER}/auth/google`;
     const handleGoogleLogin = () => {
-        window.open("http://localhost:8080/auth/google", "_self"); 
+        window.open(baseUrl, "_self"); 
     };
 
     return (
