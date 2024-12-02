@@ -27,7 +27,9 @@
 6. [Technologies We Use](#technologies-we-use)
 7. [Project Stats](#project-stats)
 8. [Setup](#setup)
-9. [License](#license)
+9. [Installation (Local)](#installation-local)
+10. [Installation (Docker)](#installation-docker)
+11. [License](#license)
 
 
 ### Architecture Overview
