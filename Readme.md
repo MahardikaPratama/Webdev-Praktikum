@@ -29,7 +29,7 @@
 8. [Setup](#setup)
 9. [License](#license)
 
-###
+
 ### Architecture Overview
 
 #### Local Project Architecture
@@ -50,7 +50,7 @@
 
 ###
 
-<h1>About DramaKu</h1>  
+### <h1>About DramaKu</h1>  
 <p>DramaKu is a web platform designed for drama and TV series enthusiasts, similar to IMDb, offering comprehensive information about your favorite titles. The application is built using modern technologies: <strong>Express.js</strong> for the backend, <strong>React</strong> for the frontend, and <strong>PostgreSQL</strong> as the database to store data efficiently and systematically.  
 </p>  
 <p>All data is sourced from <a href="https://www.themoviedb.org/">The Movie Database (TMDb)</a>, providing up-to-date information on <strong>1000+ dramas, 2000+ actors, and thousands of user reviews and comments</strong>. DramaKu allows users to:  
@@ -68,10 +68,10 @@
 </ul> 
 <p>DramaKu is designed to deliver an engaging user experience with a responsive interface, intuitive navigation, and fast performance. With a regularly updated database, DramaKu is the ultimate choice for drama enthusiasts seeking comprehensive and up-to-date references.</p>  
 
-<h2>Demo DramaKu</h2>  
+### <h2>Demo DramaKu</h2>  
 <p>You can try the DramaKu application at the following link: <a href="https://dramaku.vercel.app/" target="_blank">https://dramaku.vercel.app/</a>.</p>  
 
-<h3>How to Login</h3>  
+#### <h3>How to Login</h3>  
 <p><strong>As an Admin:</strong></p>  
 <ul>
   <li><strong>Email:</strong> admin@gmail.com</li>  
@@ -84,7 +84,7 @@
 </ul>
 
 
-<h1 align="center">🌟 Contributors 🌟</h1>
+### <h1 align="center">🌟 Contributors 🌟</h1>
 <div align="center">
   <p>Meet the amazing people who made this project possible! 🙌</p>
   <table border="0">
@@ -111,7 +111,7 @@
   </p>
 </div>
 
-<h1 align="center">📚 Special Thanks to Our Lecturer 📚</h1>
+### <h1 align="center">📚 Special Thanks to Our Lecturer 📚</h1>
 <div align="center">
   <p>We extend our deepest gratitude to our inspiring lecturer, who guided us throughout this project. 🙏</p>
   <table border="0">
@@ -132,7 +132,7 @@
 
 
 
-<h1 align="center">🚀 Technologies We Use 🚀</h1>
+### <h1 align="center">🚀 Technologies We Use 🚀</h1>
 <div align="center">
   <p>Powered by cutting-edge technologies to deliver the best user experience!</p>
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
@@ -162,7 +162,7 @@
 </div>
 
 
-<h1 align="center">📈 Project Stats 📈</h1>
+### <h1 align="center">📈 Project Stats 📈</h1>
 <div align="center">
   <img src="https://img.shields.io/github/contributors/MahardikaPratama/Webdev-Praktikum?color=red" alt="Contributors" />
   <img src="https://img.shields.io/github/commit-activity/m/MahardikaPratama/Webdev-Praktikum?color=blue" alt="Commit Activity" />
@@ -170,7 +170,7 @@
   <img src="https://img.shields.io/github/license/MahardikaPratama/Webdev-Praktikum?color=orange" alt="License" />
 </div>
 
-<h1 style="text-align: center; color: #4CAF50;">Setup</h1>
+### <h1 style="text-align: center; color: #4CAF50;">Setup</h1>
 <p style="font-size: 18px;">Follow the steps below to set up the application:</p>
 
 <ol style="font-size: 16px; line-height: 1.6;">
@@ -185,7 +185,7 @@
   <li><strong>Fill in the <code>.env</code> file inside <b>database</b> folder with your own configuration.</strong></li>
 </ol>
 
-<h1 style="text-align: center; color: #2196F3;">Installation (Local)</h1>
+### <h1 style="text-align: center; color: #2196F3;">Installation (Local)</h1>
 <p style="font-size: 18px;">Make sure you have the following software installed on your computer:</p>
 
 <ul style="font-size: 16px; line-height: 1.6;">
@@ -215,7 +215,7 @@ npm start</code></pre>
 npm install
 npm start</code></pre>
 
-<h1 style="text-align: center; color: #FF9800;">Installation (Docker)</h1>
+### <h1 style="text-align: center; color: #FF9800;">Installation (Docker)</h1>
 <p style="font-size: 18px;">Ensure you have Docker installed on your machine. If not, you can download it <a href="https://www.docker.com/products/docker-desktop" target="_blank">here</a>.</p>
 
 <p style="font-size: 16px;">If you're using Windows, you can run the following batch files:</p>
