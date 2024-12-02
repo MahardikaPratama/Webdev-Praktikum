@@ -32,19 +32,19 @@
 11. [License](#license)
 
 
-### Architecture Overview
+<h2 id="architecture-overview">Architecture Overview</h2>
 
-#### Local Project Architecture
+<h3 id="local-project-architecture">Local Project Architecture</h3>
 <div align="center">
   <img src="https://www.tutofox.com/wp-content/uploads/2023/05/Copia-de-Azul-y-Purpura-Casual-Vision-Corporativa-Diapositivas-Presentacion-Empresarial-16-1024x576.png" width="80%" alt="Local Project Architecture" />
 </div>
 
-#### Docker Project Architecture
+<h3 id="docker-project-architecture">Docker Project Architecture</h3>
 <div align="center">
   <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046880/ywgxqr65jufsueqstjet.png" width="80%" alt="Docker Project Architecture" />
 </div>
 
-#### Database Schema
+<h3 id="database-schema">Database Schema</h3>
 <div align="center">
   <img src="https://res.cloudinary.com/dnw6u159c/image/upload/v1733046734/ykhqgh3gozd62j3vzqiu.svg" width="80%" alt="Database Schema" />
 </div>
@@ -52,7 +52,7 @@
 
 ###
 
-### <h1>About DramaKu</h1>  
+<h1 id="about-dramaku">About DramaKu</h1> 
 <p>DramaKu is a web platform designed for drama and TV series enthusiasts, similar to IMDb, offering comprehensive information about your favorite titles. The application is built using modern technologies: <strong>Express.js</strong> for the backend, <strong>React</strong> for the frontend, and <strong>PostgreSQL</strong> as the database to store data efficiently and systematically.  
 </p>  
 <p>All data is sourced from <a href="https://www.themoviedb.org/">The Movie Database (TMDb)</a>, providing up-to-date information on <strong>1000+ dramas, 2000+ actors, and thousands of user reviews and comments</strong>. DramaKu allows users to:  
@@ -70,10 +70,10 @@
 </ul> 
 <p>DramaKu is designed to deliver an engaging user experience with a responsive interface, intuitive navigation, and fast performance. With a regularly updated database, DramaKu is the ultimate choice for drama enthusiasts seeking comprehensive and up-to-date references.</p>  
 
-### <h2>Demo DramaKu</h2>  
+<h2 id="demo-dramaku">Demo DramaKu</h2>  
 <p>You can try the DramaKu application at the following link: <a href="https://dramaku.vercel.app/" target="_blank">https://dramaku.vercel.app/</a>.</p>  
 
-#### <h3>How to Login</h3>  
+<h3 id="how-to-login">How to Login</h3>
 <p><strong>As an Admin:</strong></p>  
 <ul>
   <li><strong>Email:</strong> admin@gmail.com</li>  
@@ -86,7 +86,7 @@
 </ul>
 
 
-### <h1 align="center">🌟 Contributors 🌟</h1>
+### <h1 id="contributors" align="center">🌟 Contributors 🌟</h1>
 <div align="center">
   <p>Meet the amazing people who made this project possible! 🙌</p>
   <table border="0">
@@ -113,7 +113,7 @@
   </p>
 </div>
 
-### <h1 align="center">📚 Special Thanks to Our Lecturer 📚</h1>
+### <h1 id="special-thanks-to-our-lecturer" align="center">📚 Special Thanks to Our Lecturer 📚</h1>
 <div align="center">
   <p>We extend our deepest gratitude to our inspiring lecturer, who guided us throughout this project. 🙏</p>
   <table border="0">
@@ -134,7 +134,7 @@
 
 
 
-### <h1 align="center">🚀 Technologies We Use 🚀</h1>
+### <h1 id="technologies-we-use" align="center">🚀 Technologies We Use 🚀</h1>
 <div align="center">
   <p>Powered by cutting-edge technologies to deliver the best user experience!</p>
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
@@ -164,7 +164,7 @@
 </div>
 
 
-### <h1 align="center">📈 Project Stats 📈</h1>
+### <h1 id="project-stats" align="center">📈 Project Stats 📈</h1>
 <div align="center">
   <img src="https://img.shields.io/github/contributors/MahardikaPratama/Webdev-Praktikum?color=red" alt="Contributors" />
   <img src="https://img.shields.io/github/commit-activity/m/MahardikaPratama/Webdev-Praktikum?color=blue" alt="Commit Activity" />
@@ -172,7 +172,7 @@
   <img src="https://img.shields.io/github/license/MahardikaPratama/Webdev-Praktikum?color=orange" alt="License" />
 </div>
 
-### <h1 style="text-align: center; color: #4CAF50;">Setup</h1>
+### <h1 id="setup" style="text-align: center; color: #4CAF50;">Setup</h1>
 <p style="font-size: 18px;">Follow the steps below to set up the application:</p>
 
 <ol style="font-size: 16px; line-height: 1.6;">
@@ -190,7 +190,7 @@
 ### <h1 style="text-align: center; color: #2196F3;">Installation (Local)</h1>
 <p style="font-size: 18px;">Make sure you have the following software installed on your computer:</p>
 
-<ul style="font-size: 16px; line-height: 1.6;">
+<ul id="installation-local" style="font-size: 16px; line-height: 1.6;">
   <li><strong>Node.js</strong><br>
     Node.js is required to run this application. Download it from <a href="https://nodejs.org/en/download/" target="_blank">here</a>.
   </li>
@@ -217,7 +217,7 @@ npm start</code></pre>
 npm install
 npm start</code></pre>
 
-### <h1 style="text-align: center; color: #FF9800;">Installation (Docker)</h1>
+### <h1 id="installation-docker" style="text-align: center; color: #FF9800;">Installation (Docker)</h1>
 <p style="font-size: 18px;">Ensure you have Docker installed on your machine. If not, you can download it <a href="https://www.docker.com/products/docker-desktop" target="_blank">here</a>.</p>
 
 <p style="font-size: 16px;">If you're using Windows, you can run the following batch files:</p>
@@ -227,7 +227,7 @@ DOCKER_start.bat</code></pre>
 <p style="font-size: 16px;">Or run the following command:</p>
 <pre><code>docker-compose up --build</code></pre>
 
-<h1 style="text-align: center; color: #F44336;">Licence</h1>
+<h1 id="license" style="text-align: center; color: #F44336;">Licence</h1>
 <p style="font-size: 16px;">The Dramaku project is licensed under the <a href="https://opensource.org/license/MIT" target="_blank">MIT License</a>. For more details, refer to the license page.</p>
 
 <p style="font-size: 16px;">Special thanks to <a href="https://www.polban.ac.id/" target="_blank">Politeknik Negeri Bandung</a> for providing the opportunity to learn and develop this project.</p>
