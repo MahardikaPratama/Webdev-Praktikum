@@ -93,13 +93,13 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
     return (
         <>
             {/* Navbar */}
-            <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <nav className="fixed top-0 z-50 w-full bg-gray-800 border-b border-gray-700">
                 <div className="px-3 py-3 lg:px-5 lg:pl-3">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center justify-start">
                             <button
                                 onClick={toggleSidebar}
-                                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                                className="inline-flex items-center p-2 text-sm text-gray-400 rounded-lg sm:hidden focus:outline-none focus:ring-2 hover:bg-gray-700 focus:ring-gray-600"
                             >
                                 <span className="sr-only">Open sidebar</span>
                                 <svg
@@ -121,7 +121,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
                                     className="h-8 bg-white border rounded-full me-3"
                                     alt="Dramaku Logo"
                                 />
-                                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+                                <span className="self-center text-xl font-semibold text-white sm:text-2xl whitespace-nowrap">
                                     Dramaku
                                 </span>
                             </a>
@@ -137,7 +137,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
                                         onSearchChange(e); // Panggil fungsi pencarian
                                         setShowSearchResults(true); // Tampilkan hasil pencarian saat mengetik
                                     }}
-                                    className="block w-full p-3 pl-12 text-sm text-gray-900 border border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-white focus:ring-orange-500 focus:border-orange-500"
+                                    className="block w-full p-3 pl-12 text-sm text-white bg-gray-800 border rounded-lg focus:ring-orange-500 focus:border-orange-500"
                                     placeholder="Search Movie..."
                                 />
                                 {showSearchResults && searchResults.length > 0 && (
@@ -170,7 +170,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
                         <div className="flex items-center ms-3">
                             <button
                                 type="button"
-                                className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                                className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-600"
                                 onClick={handleProfileClick} // Ganti onClick menjadi handleProfileClick
                             >
                                 <span className="sr-only">Open user menu</span>
@@ -226,7 +226,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
 
             {/* Sidebar */}
             <aside
-                className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 ${
+                className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform  border-r  bg-gray-800 border-gray-700 ${
                     isSidebarOpen ? "translate-x-0" : "-translate-x-full"
                 } sm:translate-x-0`}
             >
@@ -238,7 +238,7 @@ const SidebarNavbar = ({ onCountryFilter, currentFilter, searchTerm, onSearchCha
                                 type="text"
                                 value={searchTerm} 
                                 onChange={onSearchChange} 
-                                className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-white"
+                                className="block w-full p-2 pl-10 text-sm text-white bg-gray-700 border rounded-lg"
                                 placeholder="Search..."
                             />
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
