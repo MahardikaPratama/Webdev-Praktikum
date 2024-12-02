@@ -13,6 +13,22 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" height="40" alt="postgresql logo"  />
 </div>
 
+## Table of Contents
+
+1. [Architecture Overview](#architecture-overview)
+   - [Local Project Architecture](#local-project-architecture)
+   - [Docker Project Architecture](#docker-project-architecture)
+   - [Database Schema](#database-schema)
+2. [About DramaKu](#about-dramaku)
+3. [Demo DramaKu](#demo-dramaku)
+   - [How to Login](#how-to-login)
+4. [Contributors](#contributors)
+5. [Special Thanks to Our Lecturer](#special-thanks-to-our-lecturer)
+6. [Technologies We Use](#technologies-we-use)
+7. [Project Stats](#project-stats)
+8. [Setup](#setup)
+9. [License](#license)
+
 ###
 ### Architecture Overview
 
